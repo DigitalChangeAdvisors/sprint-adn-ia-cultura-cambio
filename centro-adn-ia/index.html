@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="https://digitalchangeadvisors.com/assets/favicon.png">
+<link rel="apple-touch-icon" href="https://digitalchangeadvisors.com/assets/favicon.png">
+<title>Centro de Ayuda · Sprint ADN IA Cultura y Cambio · DCA</title>
+<meta name="description" content="Centro de ayuda vivo del Sprint ADN IA Cultura y Cambio — Digital Change Advisors. Preguntas frecuentes de plataforma y contenido.">
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     CENTRO DE AYUDA · SPRINT ADN IA CULTURA Y CAMBIO · DOCUMENTO VIVO
+     ▸ Para AÑADIR o EDITAR una pregunta NO necesitas tocar el diseño ni el motor.
+       Edita tools/contenido_centro.py y ejecuta tools/build_centro.py (o, a mano, el bloque «const FAQ = [ ... ]»).
+     ▸ Marca DCA: Marcellus + Montserrat · teal #2e8b76 · oro #a48111 · carbón #1e2a38.
+════════════════════════════════════════════════════════════════════════════ -->
+<style>
+  :root{
+    --teal:#2e8b76; --teal-dk:#247060; --gold:#a48111; --carbon:#1e2a38;
+    --platinum:#dfe3e1; --teal-bg:rgba(46,139,118,.06); --teal-bd:rgba(46,139,118,.18);
+    --gold-bg:rgba(164,129,17,.06); --grey:#6b7280;
+    --fd:'Marcellus',Georgia,serif; --fb:'Montserrat','Helvetica Neue',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:var(--fb);color:var(--carbon);background:#eef0ef;font-size:15px;line-height:1.7;}
+
+  /* ── Hero ── */
+  .hero{background:var(--carbon);padding:38px 22px 34px;}
+  .hero-in{max-width:840px;margin:0 auto;}
+  .hero .kicker{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+  .hero h1{font-family:var(--fd);font-weight:400;color:#fff;font-size:34px;margin:10px 0 6px;line-height:1.15;}
+  .hero p{color:rgba(255,255,255,.72);font-size:14px;margin:0;max-width:600px;}
+  .hero .visual{height:5px;width:70px;background:var(--teal);border-radius:3px;margin-top:18px;}
+
+  .wrap{max-width:840px;margin:0 auto;padding:26px 22px 70px;}
+
+  .intro{background:var(--teal-bg);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;
+         padding:14px 18px;font-size:13.5px;color:rgba(30,42,56,.82);margin-bottom:24px;}
+  .intro b{color:var(--carbon);}
+
+  /* ── Controles ── */
+  .controls{position:sticky;top:0;background:#eef0efe6;backdrop-filter:blur(6px);
+            padding:14px 0 12px;margin-bottom:8px;z-index:5;}
+  .search{width:100%;padding:13px 16px;border:1.5px solid var(--platinum);border-radius:10px;
+          font-family:inherit;font-size:15px;color:var(--carbon);background:#fff;outline:none;transition:border-color .2s;}
+  .search:focus{border-color:var(--teal);}
+  .search::placeholder{color:rgba(30,42,56,.4);}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center;}
+  .chips .lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-right:2px;}
+  .chip{border:1.5px solid var(--platinum);background:#fff;color:var(--carbon);border-radius:20px;
+        padding:6px 14px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .18s;}
+  .chip:hover{border-color:var(--teal);}
+  .chip.on{background:var(--teal);border-color:var(--teal);color:#fff;}
+  .chip.on.gold{background:var(--gold);border-color:var(--gold);}
+  .sep{width:1px;align-self:stretch;background:var(--platinum);margin:0 4px;}
+
+  .tag.nuevo{background:var(--gold);color:#fff;}
+  .item.flash{box-shadow:0 0 0 2px var(--gold);}
+  .nov{background:#fff;border:1px solid var(--teal-bd);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
+       padding:14px 18px;margin-bottom:20px;}
+  .nov h2{font-family:var(--fb);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 8px;}
+  .nov a{display:block;font-size:14px;font-weight:600;color:var(--carbon);text-decoration:none;padding:5px 0;line-height:1.4;}
+  .nov a:hover{color:var(--teal-dk);}
+  .nov a small{font-weight:400;color:var(--grey);font-size:11.5px;margin-left:6px;}
+  .count{font-size:12px;color:var(--grey);margin:6px 2px 16px;}
+
+  /* ── Entradas (acordeón) ── */
+  .item{background:#fff;border:1px solid #e6e8e7;border-radius:12px;margin-bottom:12px;overflow:hidden;
+        transition:box-shadow .2s;}
+  .item:hover{box-shadow:0 2px 14px rgba(30,42,56,.06);}
+  .q{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;cursor:pointer;}
+  .q:hover{background:#fbfbfb;}
+  .q .txt{flex:1;}
+  .q .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+  .tag{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;}
+  .tag.plataforma{background:var(--teal-bg);color:var(--teal-dk);}
+  .tag.contenido{background:var(--gold-bg);color:var(--gold);}
+  .tag.sprint{background:#eef0ef;color:var(--grey);}
+  .q .pregunta{font-weight:600;font-size:15px;color:var(--carbon);line-height:1.45;}
+  .q .caret{color:var(--teal);font-size:18px;line-height:1;margin-top:2px;transition:transform .2s;flex-shrink:0;}
+  .item.open .caret{transform:rotate(90deg);}
+  .a{display:none;padding:0 18px 18px 18px;}
+  .item.open .a{display:block;}
+  .a-inner{border-top:1px solid #f0f0f0;padding-top:14px;}
+  .a p{margin:0 0 10px;font-size:14px;line-height:1.75;color:rgba(30,42,56,.88);}
+  .a p:last-child{margin-bottom:0;}
+  .a strong{color:var(--carbon);}
+  .a .upd{font-size:11px;color:var(--grey);margin-top:12px;font-style:italic;}
+
+  .empty{text-align:center;color:var(--grey);padding:50px 20px;font-size:14px;}
+
+  footer{border-top:1px solid var(--platinum);margin-top:40px;padding-top:20px;text-align:center;
+         font-size:12px;color:var(--grey);}
+  footer .gold{color:var(--gold);font-weight:600;}
+
+  /* ── Selector de vista (FAQ / Glosario) ── */
+  .views{display:flex;gap:8px;margin-bottom:22px;}
+  .view-btn{flex:1;border:1.5px solid var(--platinum);background:#fff;color:var(--carbon);
+            border-radius:10px;padding:12px 14px;font-family:inherit;font-size:13.5px;font-weight:600;
+            cursor:pointer;transition:all .18s;text-align:center;}
+  .view-btn:hover{border-color:var(--teal);}
+  .view-btn.on{background:var(--carbon);border-color:var(--carbon);color:#fff;}
+
+  /* ── Glosario ── */
+  .g-item{background:#fff;border:1px solid #e6e8e7;border-left:3px solid var(--gold);border-radius:0 12px 12px 0;
+          margin-bottom:12px;padding:16px 18px;scroll-margin-top:96px;transition:box-shadow .2s,background .4s;}
+  .g-item:hover{box-shadow:0 2px 14px rgba(30,42,56,.06);}
+  .g-item.flash{background:var(--gold-bg);}
+  .g-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .g-term{font-family:var(--fd);font-size:17px;color:var(--carbon);}
+  .g-def{font-size:14px;line-height:1.7;color:rgba(30,42,56,.88);margin:0;}
+  .g-def strong{color:var(--carbon);}
+  .g-also{font-size:12px;color:var(--grey);margin-top:6px;font-style:italic;}
+
+  @media (max-width:600px){
+    .hero h1{font-size:27px;} .wrap{padding:20px 16px 60px;}
+    .views{flex-direction:column;}
+  }
+  @media print{
+    .controls,.hero .visual,.views{display:none;} body{background:#fff;}
+    .item,.g-item{break-inside:avoid;} .a{display:block!important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="kicker">Digital Change Advisors · Sprint ADN IA Cultura y Cambio</div>
+    <h1>Centro de Ayuda</h1>
+    <p>Tu compañero de consulta durante las cuatro semanas de experimentos. Respuestas a las dudas más frecuentes sobre la plataforma y el contenido de cada semana.</p>
+    <div class="visual"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="intro">
+    <b>¿Cómo usar este centro?</b> Escribe una palabra en el buscador (p. ej. «hipótesis», «PDF», «envío») o filtra por frente y semana. Haz clic en cualquier pregunta para ver la respuesta. En el <b>Glosario</b> encuentras el significado de los términos del roadmap. Es un <b>documento vivo</b>: crece a medida que avanza el sprint. ¿No encuentras tu duda? Escríbele a tu mentor.
+  </div>
+
+  <div id="novedades"></div>
+
+  <div class="views">
+    <button class="view-btn on" id="vb-faq" onclick="showView('faq')">❓ Preguntas frecuentes</button>
+    <button class="view-btn" id="vb-glosario" onclick="showView('glosario')">📖 Glosario de términos</button>
+  </div>
+
+  <div id="view-faq">
+    <div class="controls">
+      <input id="search" class="search" placeholder="🔍  Busca por palabra clave…" oninput="render()">
+      <div class="chips">
+        <span class="lbl">Frente</span>
+        <button class="chip on" data-frente="todo" onclick="setFrente('todo')">Todo</button>
+        <button class="chip" data-frente="plataforma" onclick="setFrente('plataforma')">Plataforma</button>
+        <button class="chip" data-frente="contenido" onclick="setFrente('contenido')">Contenido</button>
+        <span class="sep"></span>
+        <span class="lbl">Semana</span>
+        <span id="sprint-chips"></span>
+      </div>
+    </div>
+
+    <div class="count" id="count"></div>
+    <div id="list"></div>
+  </div>
+
+  <div id="view-glosario" hidden>
+    <div class="controls">
+      <input id="g-search" class="search" placeholder="🔍  Busca un término…" oninput="renderGlosario()">
+    </div>
+
+    <div class="count" id="g-count"></div>
+    <div id="g-list"></div>
+  </div>
+
+  <footer>
+    <div>Digital Change Advisors · MATCH</div>
+    <div class="gold">Documento vivo — se enriquece con cada cohorte.</div>
+  </footer>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════════
+   ▼▼▼  CONTENIDO DEL CENTRO DE AYUDA (generado desde tools/contenido_centro.py)  ▼▼▼
+   sprint: "General" o la semana ("1"…"4") · frente: "plataforma" | "contenido"
+   ═══════════════════════════════════════════════════════════════════════════ */
+const FAQ = [
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "Si cierro la pestaña o el navegador, ¿pierdo lo que escribí?",
+    "respuesta": "No. El roadmap tiene **autoguardado**: todo lo que escribes se conserva automáticamente en tu dispositivo, mientras escribes. Puedes cerrar y volver más tarde y tu trabajo seguirá ahí.\n\nUn detalle importante: el guardado es **por navegador y por equipo** (no está en la nube). Retoma siempre desde el mismo computador y el mismo navegador. No uses ventanas de incógnito ni borres los datos de navegación: perderías lo que no hayas enviado.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "Voy a cambiar de computador. ¿Qué hago con lo que ya escribí?",
+    "respuesta": "Depende de un solo detalle: **¿ya lo enviaste y viste el «✓ Enviado» con tu número de recibo?**\n\n**Si ya lo enviaste:** quedó registrado con tu mentor, sin importar el computador. En el equipo nuevo abre el roadmap y sigue con el experimento de la semana. Solo tendrás que volver a escribir los datos de identificación (caso, fecha) y la cifra de tu línea base: la tienes en el **PDF que te llegó a tu correo** al enviar el Experimento 1, y la necesitarás en el Experimento 4.\n\n**Si todavía no lo has enviado:** envíalo antes de cambiar de equipo. Mientras no veas el «✓ Enviado» con recibo, lo escrito solo existe en el navegador donde lo escribiste.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "¿Cómo envío mi experimento y cómo sé que de verdad llegó?",
+    "respuesta": "Al final de cada experimento pulsa **«Enviar Experimento N»**. Se abre una ventana con el resumen de tus respuestas; revísalo y pulsa **«✈ Enviar ahora a mi mentor»**.\n\nEl envío es real: el sistema registra tu trabajo, genera tu PDF y le avisa a tu mentor. Solo cuando todo eso ocurre ves **«✓ Envío confirmado»** con un **número de recibo** (por ejemplo, ADN-01-101-0001) y te llega una copia con el PDF a tu correo. Guarda ese número: es tu comprobante.\n\nPara que el envío funcione, tu **correo, tu nombre y tu cohorte** deben estar escritos en la portada.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "Pulsé «Enviar» pero no estoy seguro de que se haya enviado.",
+    "respuesta": "Revisa tres señales: (1) la ventana mostró **«✓ Envío confirmado»** con un número de recibo; (2) el botón del experimento dice **«✓ Enviado · [recibo]»**; (3) te llegó un correo con tu PDF.\n\nSi no ves el recibo, **no se envió**: el roadmap nunca confirma por optimismo. Tu trabajo sigue guardado; abre el experimento y pulsa **Enviar** de nuevo. Si te llega más de un correo, no pasa nada: tu mentor siempre ve la versión más reciente.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "¿Cómo genero el PDF y qué incluye?",
+    "respuesta": "Pulsa **«Guardar copia en PDF»** en cualquier experimento. Se abre una ventana con tu documento; en el diálogo de impresión elige **«Guardar como PDF»**.\n\nEl PDF contiene **el texto completo** de todos tus campos (no se recorta). Si todavía no has enviado el experimento, el PDF dice «Copia de trabajo — aún no enviado»: **generar el PDF no equivale a enviar**. Si tu navegador bloquea la ventana, permite las ventanas emergentes de este sitio.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "¿Es obligatorio enviar cada experimento?",
+    "respuesta": "Sí. El envío semanal es lo que **habilita la retroalimentación individual** de tu mentor y deja evidencia de tu avance. El **Experimento 4** es el entregable obligatorio del sprint: «Mi práctica actualizada» y tu matriz de decisión son la base de la valoración final.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "¿Qué hago si no alcanzo a terminar un experimento dentro de la semana?",
+    "respuesta": "Envía lo que tengas, con la decisión que puedas sostener con tu evidencia. Un experimento incompleto, con la razón por la que no se completó, **también es dato**: anótalo en «Observaciones para tu mentor». No acumules el trabajo para la semana siguiente: cada experimento está pensado para caber en cinco días y cuatro horas.\n\nSi tuviste un obstáculo real (agenda, acceso al líder, permisos), cuéntalo: puede convertirse en un hallazgo sobre la barrera que más pesa en tu caso.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "¿Qué hago con la información de las personas de mi caso?",
+    "respuesta": "Cuídala. **No registres nombres**: usa el rol o las iniciales. No escribas datos que permitan identificar a alguien. Si una conversación revela un riesgo para una persona, no lo registres ni lo uses.\n\nTu registro llega a tu mentor y se archiva con tu envío: escribe como si cualquiera de las personas de tu caso pudiera leerlo. En el Experimento 3, el líder **sabe que es un experimento** y lo acepta: no actúas a sus espaldas.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "¿Puedo usar IA para llenar los campos del roadmap?",
+    "respuesta": "Puedes usarla como **andamiaje**, tal como lo indica cada experimento: para contraargumentar tu clasificación, proponerte versiones alternativas de un mensaje, simular objeciones o estresar tus decisiones. **La lectura, la hipótesis y las decisiones son tuyas**: la IA no escucha por ti, no firma tus resultados y no decide qué se escala.\n\nDos cuidados: no ingreses en ninguna herramienta de IA que tu empresa no haya autorizado frases o datos que identifiquen a personas o información confidencial; y verifica siempre lo que la IA te devuelva. Si inventa una cifra o una fuente, regístralo: es un hallazgo.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "plataforma",
+    "pregunta": "¿Cuándo y cómo llega la retroalimentación de mi mentor?",
+    "respuesta": "Cada vez que envías un experimento, tu mentor lo revisa y te responde **por correo**, con su lectura de tu registro, una valoración por criterio y, cuando aporta, ejemplos concretos de «cómo se vería más fuerte». Puedes responder ese mismo correo: llega directo a tu mentor. El tiempo de respuesta lo acuerda tu mentor con la cohorte.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿Qué es una conducta meta «observable» y cómo sé si la mía lo es?",
+    "respuesta": "Una conducta meta es **observable** cuando otra persona podría ver que ocurre. La prueba práctica: ¿una persona externa podría comprobar que ocurrió?\n\n**Difusa:** «Que los líderes se apropien de la IA». **Observable:** «Que cada líder de área abra su reunión semanal mostrando una tarea en la que usó IA y cómo la verificó». Si tu meta habla de actitudes («que se comprometan», «que confíen»), reescríbela como algo que se pueda ver, contar o registrar. Puedes afinarla durante el sprint: es una hipótesis, no un decreto.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿Cómo escribo una buena hipótesis?",
+    "respuesta": "Una hipótesis tiene **cinco partes**: (1) la conducta meta, (2) el cambio que introduces, (3) cómo lo mides, (4) el **criterio de éxito** y (5) la **decisión** que tomarás: escalar, ajustar o descartar.\n\nLa regla de oro: **el criterio de éxito y la decisión se escriben antes de ejecutar**, no después de ver el resultado. Así la evidencia manda sobre la intuición. Los ejemplos que aparecen en el roadmap son ilustrativos: las cifras son para mostrar la forma, no son datos.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿Qué pasa si mi hipótesis no se cumple?",
+    "respuesta": "Es un **resultado válido**, y a veces el más valioso. Si no se cumple, decides según lo que escribiste antes: ajustar (cambiar algo y volver a probar) o descartar (bajar el peso de esa palanca y pasar a otra). Rectificar con evidencia es el resultado esperado del método, no un fracaso.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿Para qué me piden registrar lo que sentí?",
+    "respuesta": "Cada experimento incluye un **momento de beneficio sentido**: un instante diseñado para que sientas el beneficio del nuevo escenario, y no solo para que lo entiendas. Es una **apuesta de diseño del MATCH**, no un hecho demostrado: tu registro semanal es lo que la pone a prueba.\n\nNo hay respuesta correcta. Si lo que sentiste fue alivio, sorpresa o satisfacción, anótalo; si fue incomodidad o frustración, anótalo también. Lo sentido es dato, sea agradable o no.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿Qué significan los pesos de 1 a 5 de las cuatro barreras y por qué los re-pondero cada semana?",
+    "respuesta": "Las cuatro barreras a la asimilación son **creencias, capacidades del rol, estilo del líder y cultura vigente**. El peso (1 a 5) dice cuánto frena tu conducta meta cada una: 1 = casi nada, 5 = es la que más pesa. Partes del peso que diste en tu tarjeta de caso durante la sesión.\n\nLo re-ponderas cada semana **con la evidencia que produjiste**. Al final del sprint podrás comparar lo que creías al inicio con lo que mostró tu evidencia, y decir qué barrera pesa más en tu caso y por qué.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿Qué relación hay entre las etapas del ciclo (Activación, Acción, Repetición, Transformación) y las semanas?",
+    "respuesta": "Son el **énfasis dominante** de cada semana, no fases rígidas: la semana 1 predomina la **activación** (escuchar y ver qué se mueve), la 2 la **acción** (rediseñar y practicar), la 3 la **repetición** (observar que algo se sostiene más de una vez) y la 4 la **transformación** (medir, decidir y actualizar tu práctica).\n\nEn todas las semanas hay un poco de las demás: por ejemplo, ejecutas tres veces el paso en la semana 2. Es el modelo de diseño del MATCH para que el aprendizaje pase por la experiencia y no solo por la cabeza.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿En qué momento del MATCH estoy y qué viene después?",
+    "respuesta": "El MATCH (Modelo Ágil de Transformación Cultural y Humana) tiene seis momentos: (1) planeación y línea base, (2) fundamentación, (3) sprint roadmap, (4) captura semanal de evidencias, (5) retroalimentación individual semanal y (6) valoración final.\n\nLa sesión de fundamentación fue el momento 2. Este roadmap es el momento 3: cuatro semanas, un experimento por semana. Cada vez que envías, alimentas el momento 4; la respuesta de tu mentor es el momento 5; y al cerrar el sprint se hace la valoración (momento 6).",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "General",
+    "frente": "contenido",
+    "pregunta": "¿Cómo se hará la valoración final del sprint?",
+    "respuesta": "Se hace **sobre comportamientos**, con la evidencia que registraste: el cambio de tu conducta meta frente a tu línea base (en frecuencia y en calidad), cuántas de tus decisiones siguieron al resultado y no a la intuición, cómo cambió el peso de las cuatro barreras con evidencia, y lo que cambió en tu práctica según «Mi práctica actualizada».\n\nNo se mide cuánto usaste la IA ni cuántas horas dedicaste: se mide lo que hiciste distinto y lo que pudiste demostrar.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "1",
+    "frente": "contenido",
+    "pregunta": "¿Cómo hago una conversación de diagnóstico sin intentar convencer?",
+    "respuesta": "Solo preguntas. Por ejemplo: «¿Qué cambia para ti con esto?», «¿Qué te preocupa perder?», «¿Qué necesitarías saber para sentirte tranquilo?». Tu trabajo es entender, no corregir ni defender el cambio. Anota **una frase textual** de la persona.\n\nLa persona debe saber que estás explorando cómo diseñar mejor el cambio. Si notas que estás argumentando, vuelve a preguntar. Después, clasifica lo que escuchaste: pérdida de identidad o estatus, incertidumbre o una falla del diseño del cambio.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "1",
+    "frente": "contenido",
+    "pregunta": "¿Cómo cuento la línea base de mi conducta meta («X de Y oportunidades»)?",
+    "respuesta": "Elige una ventana corta: la semana anterior (si tienes de dónde reconstruirla) o cinco días de observación. Cuenta **cuántas veces ocurrió** tu conducta meta (X) y **en cuántas oportunidades pudo ocurrir** (Y). Por ejemplo, si tu meta es que los líderes abran su reunión con un uso propio de IA, y hubo 5 reuniones y en 1 lo hicieron: «1 de 5».\n\nEse número es tu punto de partida para todo el sprint; lo volverás a medir en el Experimento 4. Si casi no hay oportunidades, cuéntalas igual y anota por qué.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "1",
+    "frente": "contenido",
+    "pregunta": "¿Qué es un mensaje por rol y cómo lo escribo?",
+    "respuesta": "Es el mensaje del cambio escrito para un rol específico, en cuatro renglones: **qué cambia** para ese rol, **qué no cambia**, **quién decide** y **cuándo se sabrá**. La honestidad no consiste en decirlo todo, sino en decir qué se sabe, qué no y cuándo se sabrá.\n\nUn mensaje genérico («la IA nos hará más eficientes») no le dice nada al analista de nómina ni al líder de área. Escribe una versión inicial antes de conversar y una final después, y anota qué cambió entre ellas.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "2",
+    "frente": "contenido",
+    "pregunta": "¿Cómo elijo el paso de mi práctica que voy a rediseñar?",
+    "respuesta": "Elige **un solo paso de una sola tarea** de tu propia práctica: por ejemplo, sintetizar los comentarios abiertos de una encuesta de clima, preparar un mapa de actores o redactar el primer borrador de un plan de comunicación. Si intentas rediseñar toda tu práctica, el experimento no cabe en cuatro horas ni se puede observar.\n\nAntes de meterle IA, decide qué se automatiza, qué se aumenta y qué conservas, y qué parte harás **sin asistencia** porque es crítica.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "2",
+    "frente": "contenido",
+    "pregunta": "¿Qué es un mapa de frontera y qué hago si la IA no puede con mi tarea?",
+    "respuesta": "La IA es buena en unas tareas y mala en otras, y desde afuera no se ve de qué lado está la tuya. Un **mapa de frontera** es tu registro de qué partes de la tarea quedaron **dentro** (la IA las hizo bien), **fuera** (no las hizo bien) o **no sé**, respaldado por tus ejecuciones, no por opinión. Cambia cuando cambia el modelo, por eso se llama «vivo».\n\nSi la IA no puede con tu tarea, **es un resultado válido**: márcala «fuera», cuenta qué falló y toma tu decisión (ajustar o descartar). No es un fracaso del experimento.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "3",
+    "frente": "contenido",
+    "pregunta": "Mi líder no quiere participar. ¿Qué hago?",
+    "respuesta": "Es información sobre la barrera del estilo del líder, no un obstáculo del experimento. Empieza por la conducta **más pequeña y de menor riesgo** que puedas pedirle: usar IA a la vista tiene un costo reputacional real, y no se lo pides a nadie sin conversarlo. Explícale que es un experimento de cuatro horas, con un kit de una página.\n\nSi aun así no acepta, registra qué dijo y por qué: eso te dirá cuánto pesa esta barrera en tu caso. No actúes a sus espaldas ni ejecutes la acción por él.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "3",
+    "frente": "contenido",
+    "pregunta": "¿Por qué «entrego, no ejecuto»?",
+    "respuesta": "Porque la adopción la conduce quien tiene autoridad sobre el flujo de trabajo, y esa persona es el líder. Si ejecutas la acción por él, el cambio dura mientras tú estés presente y no se sostiene solo. Tu trabajo es **diseñar el sistema**: la línea de acción, el kit, el momento y quién registra. El del líder es hacerlo.\n\nSi no ocurre, ajusta la logística (el calendario, el recordatorio, la frase de apertura), pero no la hagas tú.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "3",
+    "frente": "contenido",
+    "pregunta": "Mi líder solo tiene un ritual semanal. ¿Cómo observo al menos dos ocasiones?",
+    "respuesta": "Cuenta también **otras ocasiones** en las que el líder se comunica con su equipo: sus mensajes en el canal del equipo, un uno a uno o un correo. Necesitas mínimo dos ocasiones observables en los cinco días. Define con el líder, en el Día 2, cuáles serán.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "4",
+    "frente": "contenido",
+    "pregunta": "¿Qué es un acto de transparencia y cómo lo hago con poco riesgo?",
+    "respuesta": "Es compartir **un error de la IA que detectaste** (por ejemplo, el del Experimento 2) o un aprendizaje que no salió como esperabas, y observar qué ocurre: ¿se tolera?, ¿alguien hace una pregunta de verificación?, ¿alguien comparte algo propio? Con eso lees un rasgo de la cultura de tu caso: tolerancia al error, transparencia u orientación al aprendizaje.\n\nHazlo en el **canal de menor riesgo** (un par, tu líder o tu equipo), con el consentimiento de quien corresponda. Compartes un error o un aprendizaje **tuyo**, nunca el error de otra persona.",
+    "actualizado": "2026-10-15"
+  },
+  {
+    "sprint": "4",
+    "frente": "contenido",
+    "pregunta": "¿Qué va en «Mi práctica actualizada»?",
+    "respuesta": "Una página con tres cosas: **qué conservas, qué cambias y qué dejas de hacer** en tu práctica, cada una con la evidencia que la respalda y en términos de las cuatro exigencias de la Era IA: comunicar con honestidad y por rol; rediseñar tu práctica y aprender en el flujo diario; liderar protegiendo el juicio humano; y medir valor y no licencias.\n\nCierra con la hipótesis de tu siguiente ciclo (con criterio de éxito y decisión), el momento sentido y la frase «Lo que cambió en mi práctica es…». No necesitas haber dominado nada: se trata de qué cambia y con qué evidencia.",
+    "actualizado": "2026-10-15"
+  }
+];
+
+const GLOSARIO = [
+  {
+    "termino": "MATCH",
+    "slug": "match",
+    "sprint": "General",
+    "definicion": "Modelo Ágil de Transformación Cultural y Humana. El marco con el que DCA diseña el aprendizaje de nuevas habilidades: una fase de fundamentación y una fase de experimentación en el flujo de trabajo diario, con retroalimentación semanal y una valoración final. Su apuesta de diseño es que el aprendizaje pase por la experiencia (lo vivido y lo sentido), no solo por lo cognitivo.",
+    "tambien": "",
+    "orden": 1
+  },
+  {
+    "termino": "DICO",
+    "slug": "dico",
+    "sprint": "General",
+    "definicion": "Diseño Inverso de Conducta Objetivo. Una forma de actuar, no un producto: (1) definir primero la **conducta meta**, (2) diagnosticar las cuatro barreras, (3) experimentar en el flujo diario y (4) actualizar la práctica con la evidencia. «Diseño inverso» es una inferencia de diseño de DCA: se parte del destino y se construye la ruta hacia atrás.",
+    "tambien": "",
+    "orden": 2
+  },
+  {
+    "termino": "Conducta meta",
+    "slug": "conducta-meta",
+    "sprint": "General",
+    "definicion": "La conducta específica y **observable** que quieres ver en tu caso. Si otra persona no podría ver que ocurre, todavía no es una conducta meta: es una actitud o un deseo. Es una hipótesis que puedes afinar con la evidencia.",
+    "tambien": "comportamiento objetivo",
+    "orden": 3
+  },
+  {
+    "termino": "Observable",
+    "slug": "observable",
+    "sprint": "General",
+    "definicion": "Que otra persona podría ver que ocurre y comprobarlo. Es la prueba de una buena conducta meta y de una buena métrica de comportamiento.",
+    "tambien": "",
+    "orden": 4
+  },
+  {
+    "termino": "Cuatro barreras",
+    "slug": "cuatro-barreras",
+    "sprint": "General",
+    "definicion": "Las cuatro causas que explican por qué una conducta no ocurre: **creencias** (lo que las personas creen y temen perder), **capacidades del rol** (lo que el rol necesita poder hacer con poca fricción), **estilo del líder** (lo que hace y deja de hacer) y **cultura vigente** (lo que la cultura mide, premia y tolera). Cada semana del sprint trabaja una.",
+    "tambien": "barreras a la asimilación",
+    "orden": 5
+  },
+  {
+    "termino": "Peso de una barrera",
+    "slug": "peso-barrera",
+    "sprint": "General",
+    "definicion": "Un número de 1 a 5 que dice cuánto frena tu conducta meta una barrera (1 = casi nada, 5 = es la que más pesa). Partes del peso de tu tarjeta de caso y lo re-ponderas cada semana con evidencia.",
+    "tambien": "re-ponderación",
+    "orden": 6
+  },
+  {
+    "termino": "Línea base",
+    "slug": "linea-base",
+    "sprint": "General",
+    "definicion": "Tu punto de partida medido: cuántas veces ocurre tu conducta meta y en cuántas oportunidades pudo ocurrir («X de Y»). La tomas en el Experimento 1 y la comparas en el 4.",
+    "tambien": "",
+    "orden": 7
+  },
+  {
+    "termino": "Hipótesis (cinco partes)",
+    "slug": "hipotesis",
+    "sprint": "General",
+    "definicion": "Lo que escribes antes de ejecutar un experimento: la conducta meta, el cambio que introduces, cómo lo mides, el criterio de éxito y la decisión (escalar, ajustar o descartar).",
+    "tambien": "",
+    "orden": 8
+  },
+  {
+    "termino": "Criterio de éxito",
+    "slug": "criterio-exito",
+    "sprint": "General",
+    "definicion": "Lo que tendría que pasar para que consideres que el experimento funcionó. Se escribe **antes** de ejecutar; si se escribe después, deja de ser un criterio.",
+    "tambien": "valor objetivo",
+    "orden": 9
+  },
+  {
+    "termino": "Puente de evolución",
+    "slug": "puente-evolucion",
+    "sprint": "General",
+    "definicion": "La capa que une cómo se hacía antes con cómo se hace en la Era IA: en cada lección del programa, lo que se conserva, lo que cambia y por qué. Se construye con tus propias palabras («Antes yo… / Ahora yo…») y es la evidencia de que puedes explicar qué cambia en tu práctica.",
+    "tambien": "",
+    "orden": 10
+  },
+  {
+    "termino": "Momento de beneficio sentido",
+    "slug": "momento-sentido",
+    "sprint": "General",
+    "definicion": "Un instante diseñado dentro de cada experimento para que sientas el beneficio del nuevo escenario y no solo lo entiendas. Lo registras con qué sentiste y con qué intensidad (1 a 5), sea agradable o incómodo. Es una apuesta de diseño del MATCH.",
+    "tambien": "",
+    "orden": 11
+  },
+  {
+    "termino": "Ciclo del MATCH",
+    "slug": "ciclo-match",
+    "sprint": "General",
+    "definicion": "Las cuatro etapas del proceso de transformación humana ágil: **Activación, Acción, Repetición y Transformación**. En este sprint cada semana tiene el énfasis de una etapa.",
+    "tambien": "",
+    "orden": 12
+  },
+  {
+    "termino": "Mensaje por rol",
+    "slug": "mensaje-por-rol",
+    "sprint": "General",
+    "definicion": "El mensaje del cambio escrito para un rol específico en cuatro renglones: qué cambia, qué no cambia, quién decide y cuándo se sabrá.",
+    "tambien": "",
+    "orden": 13
+  },
+  {
+    "termino": "Mapa de frontera",
+    "slug": "mapa-frontera",
+    "sprint": "General",
+    "definicion": "Tu registro de qué partes de una tarea quedaron dentro, fuera o «no sé» de lo que la IA hace bien, respaldado por ejecuciones reales. Se actualiza cuando cambia el modelo.",
+    "tambien": "",
+    "orden": 14
+  },
+  {
+    "termino": "Línea de acción",
+    "slug": "linea-accion",
+    "sprint": "General",
+    "definicion": "La conducta más pequeña y de menor riesgo que le entregas al líder para que cambie el cálculo de su equipo (por ejemplo, abrir su reunión semanal mostrando un uso propio de IA y cómo lo verificó). Tú la diseñas; el líder la ejecuta.",
+    "tambien": "",
+    "orden": 15
+  },
+  {
+    "termino": "Kit de una página",
+    "slug": "kit-una-pagina",
+    "sprint": "General",
+    "definicion": "El apoyo mínimo que le entregas al líder junto con la línea de acción: qué se pide, cuándo, con qué frase de apertura y quién registra.",
+    "tambien": "",
+    "orden": 16
+  },
+  {
+    "termino": "Acto de transparencia",
+    "slug": "acto-transparencia",
+    "sprint": "General",
+    "definicion": "Compartir un error de la IA que detectaste, o un aprendizaje fallido, en el canal de menor riesgo, y observar qué ocurre. Sirve para leer un rasgo de la cultura de tu caso.",
+    "tambien": "",
+    "orden": 17
+  },
+  {
+    "termino": "Dueño humano de la calidad",
+    "slug": "duenio-calidad",
+    "sprint": "General",
+    "definicion": "La persona que responde por la calidad de un resultado, aunque la IA haya participado en producirlo. En tu práctica, normalmente eres tú; en el caso del líder, quien firma.",
+    "tambien": "",
+    "orden": 18
+  },
+  {
+    "termino": "Entregable obligatorio",
+    "slug": "entregable",
+    "sprint": "General",
+    "definicion": "«Mi práctica actualizada» y la matriz de decisión del Experimento 4. Habilitan la retroalimentación de cierre y alimentan la valoración final.",
+    "tambien": "",
+    "orden": 19
+  },
+  {
+    "termino": "Recibo",
+    "slug": "recibo",
+    "sprint": "General",
+    "definicion": "El número que el sistema te devuelve cuando tu envío queda registrado (por ejemplo, ADN-01-101-0001). Solo existe si el servidor confirmó el envío. Guárdalo: es tu comprobante.",
+    "tambien": "",
+    "orden": 20
+  },
+  {
+    "termino": "Sprint roadmap",
+    "slug": "sprint-roadmap",
+    "sprint": "General",
+    "definicion": "El documento que estás trabajando: cuatro experimentos, uno por semana, para poner en práctica en tu flujo diario lo que viste en la fundamentación. Es el momento 3 del MATCH.",
+    "tambien": "",
+    "orden": 21
+  },
+  {
+    "termino": "Exigencias de la Era IA",
+    "slug": "exigencias-era-ia",
+    "sprint": "General",
+    "definicion": "Los cuatro cambios que el programa propone para la práctica de Cultura y Cambio: comunicar con honestidad y por rol; rediseñar tu práctica y aprender en el flujo diario; liderar protegiendo el juicio humano (con confianza calibrada y gobernanza explícita); y medir valor y no licencias.",
+    "tambien": "",
+    "orden": 22
+  }
+];
+/* ▲▲▲  FIN DEL CONTENIDO  ▲▲▲  (de aquí para abajo es el motor) */
+
+// ── Estado de filtros ──
+var estadoFrente = 'todo';
+var estadoSprint = 'todos';
+
+// Slug estable por pregunta (explícito en «slug», o derivado del texto) y orden: más reciente primero
+function slugify(t){
+  return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').split('-').slice(0,7).join('-');
+}
+FAQ.forEach(function(f,i){ f._i=i; f._slug=f.slug||slugify(f.pregunta); });
+FAQ.sort(function(a,b){
+  var da=a.actualizado||'', db=b.actualizado||'';
+  return da<db?1:da>db?-1:a._i-b._i;
+});
+function esNuevo(f){
+  if(!f.actualizado) return false;
+  var d=new Date(f.actualizado+'T12:00:00');
+  return (Date.now()-d.getTime())/864e5 <= 14;
+}
+
+// Chips de sprint generados desde los datos (más "General" siempre)
+(function buildSprintChips(){
+  var sprints = FAQ.map(function(f){return f.sprint;})
+                   .filter(function(s){return s && s!=='General';});
+  var uniq = sprints.filter(function(s,i){return sprints.indexOf(s)===i;}).sort();
+  var html = '<button class="chip on gold" data-sprint="todos" onclick="setSprint(\'todos\')">Todos</button>';
+  uniq.forEach(function(s){
+    html += '<button class="chip" data-sprint="'+s+'" onclick="setSprint(\''+s+'\')">'+(/^\d+$/.test(s)?'Semana '+s:s)+'</button>';
+  });
+  document.getElementById('sprint-chips').innerHTML = html;
+})();
+
+function showView(v){
+  document.getElementById('view-faq').hidden = (v!=='faq');
+  document.getElementById('view-glosario').hidden = (v!=='glosario');
+  document.getElementById('vb-faq').classList.toggle('on', v==='faq');
+  document.getElementById('vb-glosario').classList.toggle('on', v==='glosario');
+}
+
+function renderGlosario(){
+  var q=(document.getElementById('g-search').value||'').toLowerCase().trim();
+  var arr=GLOSARIO.filter(function(g){
+    if(!q) return true;
+    var hay=(g.termino+' '+g.definicion+' '+(g.tambien||'')).toLowerCase();
+    return hay.indexOf(q)!==-1;
+  }).slice().sort(function(a,b){
+    if(a.orden!=null && b.orden!=null) return a.orden-b.orden;
+    return a.termino.localeCompare(b.termino,'es');
+  });
+
+  var cont=document.getElementById('g-list');
+  document.getElementById('g-count').textContent =
+    arr.length+(arr.length===1?' término':' términos')+(q?' para «'+q+'»':'');
+
+  if(!arr.length){
+    cont.innerHTML='<div class="empty">No hay términos que coincidan.<br>Prueba otra palabra o escríbele a tu mentor — y ese término entrará al glosario.</div>';
+    return;
+  }
+
+  cont.innerHTML=arr.map(function(g){
+    var st = g.sprint==='General' ? 'General' : 'Semana '+g.sprint;
+    return ''
+    +'<div class="g-item" id="g-'+g.slug+'">'
+    +  '<div class="g-head">'
+    +    '<span class="g-term">'+esc(g.termino)+'</span>'
+    +    '<span class="tag sprint">'+esc(st)+'</span>'
+    +  '</div>'
+    +  '<p class="g-def">'+fmt(g.definicion).replace(/^<p>|<\/p>$/g,'')+'</p>'
+    +  (g.tambien?'<div class="g-also">También aparece como: '+esc(g.tambien)+'</div>':'')
+    +'</div>';
+  }).join('');
+}
+
+function irAGlosario(hash){
+  showView('glosario');
+  renderGlosario();
+  setTimeout(function(){
+    var el=document.getElementById(hash.replace('#',''));
+    if(!el) return;
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    el.classList.add('flash');
+    setTimeout(function(){el.classList.remove('flash');},1600);
+  },30);
+}
+
+function setFrente(f){
+  estadoFrente=f;
+  document.querySelectorAll('.chip[data-frente]').forEach(function(c){
+    c.classList.toggle('on', c.getAttribute('data-frente')===f);
+  });
+  render();
+}
+function setSprint(s){
+  estadoSprint=s;
+  document.querySelectorAll('.chip[data-sprint]').forEach(function(c){
+    c.classList.toggle('on', c.getAttribute('data-sprint')===s);
+  });
+  render();
+}
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmt(txt){
+  return esc(txt).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .split(/\n\n+/).map(function(p){return '<p>'+p.replace(/\n/g,'<br>')+'</p>';}).join('');
+}
+function fecha(iso){
+  if(!iso) return '';
+  var m=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var p=String(iso).split('-'); if(p.length<3) return iso;
+  return p[2].replace(/^0/,'')+' '+m[(+p[1])-1]+' '+p[0];
+}
+
+function renderNovedades(){
+  var nuevos=FAQ.filter(esNuevo).slice(0,5);
+  var el=document.getElementById('novedades');
+  if(!nuevos.length){el.innerHTML='';return;}
+  el.innerHTML='<div class="nov"><h2>Novedades</h2>'+nuevos.map(function(f){
+    var st=f.sprint==='General'?'General':'Semana '+f.sprint;
+    return '<a href="#q-'+f._slug+'">'+esc(f.pregunta)+'<small>'+st+' · '+fecha(f.actualizado)+'</small></a>';
+  }).join('')+'</div>';
+}
+
+function irAPregunta(hash){
+  var id=hash.replace('#','');
+  showView('faq');
+  var el=document.getElementById(id);
+  if(!el){ // limpia filtros por si la pregunta quedó oculta
+    document.getElementById('search').value='';
+    estadoFrente='todo'; estadoSprint='todos';
+    document.querySelectorAll('.chip[data-frente]').forEach(function(c){c.classList.toggle('on',c.getAttribute('data-frente')==='todo');});
+    document.querySelectorAll('.chip[data-sprint]').forEach(function(c){c.classList.toggle('on',c.getAttribute('data-sprint')==='todos');});
+    render(); el=document.getElementById(id);
+  }
+  if(!el) return;
+  el.classList.add('open','flash');
+  setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'center'});},30);
+  setTimeout(function(){el.classList.remove('flash');},2200);
+}
+
+function render(){
+  var q=(document.getElementById('search').value||'').toLowerCase().trim();
+  var arr=FAQ.filter(function(f){
+    if(estadoFrente!=='todo' && f.frente!==estadoFrente) return false;
+    if(estadoSprint!=='todos' && f.sprint!==estadoSprint && f.sprint!=='General') return false;
+    if(q){ var hay=(f.pregunta+' '+f.respuesta).toLowerCase(); if(hay.indexOf(q)===-1) return false; }
+    return true;
+  });
+
+  var cont=document.getElementById('list');
+  document.getElementById('count').textContent =
+    arr.length+(arr.length===1?' pregunta':' preguntas')+(q?' para «'+q+'»':'');
+
+  if(!arr.length){
+    cont.innerHTML='<div class="empty">No hay preguntas que coincidan.<br>Prueba otra palabra o escríbele a tu mentor — y esa duda entrará al centro.</div>';
+    return;
+  }
+
+  cont.innerHTML=arr.map(function(f,i){
+    var st = f.sprint==='General' ? 'General' : (/^\d+$/.test(f.sprint) ? 'Semana '+f.sprint : f.sprint);
+    var iid='q-'+f._slug;
+    return ''
+    +'<div class="item" id="'+iid+'">'
+    +  '<div class="q" onclick="document.getElementById(\''+iid+'\').classList.toggle(\'open\')">'
+    +    '<div class="txt">'
+    +      '<div class="tags">'
+    +        '<span class="tag '+f.frente+'">'+(f.frente==='plataforma'?'Plataforma':'Contenido')+'</span>'
+    +        '<span class="tag sprint">'+esc(st)+'</span>'
+    +        (esNuevo(f)?'<span class="tag nuevo">Nuevo</span>':'')
+    +      '</div>'
+    +      '<div class="pregunta">'+esc(f.pregunta)+'</div>'
+    +    '</div>'
+    +    '<span class="caret">›</span>'
+    +  '</div>'
+    +  '<div class="a"><div class="a-inner">'+fmt(f.respuesta)
+    +    (f.actualizado?'<div class="upd">Actualizado: '+fecha(f.actualizado)+'</div>':'')
+    +  '</div></div>'
+    +'</div>';
+  }).join('');
+}
+
+render();
+renderNovedades();
+renderGlosario();
+
+function irAHash(){
+  if(location.hash.indexOf('#g-')===0) irAGlosario(location.hash);
+  else if(location.hash.indexOf('#q-')===0) irAPregunta(location.hash);
+}
+irAHash();
+window.addEventListener('hashchange', irAHash);
+</script>
+</body>
+</html>

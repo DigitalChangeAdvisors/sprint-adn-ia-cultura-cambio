@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="https://digitalchangeadvisors.com/assets/favicon.png">
+<link rel="apple-touch-icon" href="https://digitalchangeadvisors.com/assets/favicon.png">
+<title>Sprint Roadmap · ADN IA Cultura y Cambio · Experimentos en el flujo diario · Digital Change Advisors</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════
+   SISTEMA DE DISEÑO DCA 2026
+═══════════════════════════════════════════════ */
+:root {
+  --teal:      #2e8b76;
+  --teal-dk:   #247060;
+  --gold:      #a48111;
+  --carbon:    #1e2a38;
+  --platinum:  #dfe3e1;
+  --white:     #ffffff;
+  --teal-bg:   rgba(46,139,118,0.06);
+  --teal-bd:   rgba(46,139,118,0.18);
+  --gold-bg:   rgba(164,129,17,0.05);
+  --fd:        'Marcellus', Georgia, serif;
+  --fb:        'Montserrat', 'Helvetica Neue', sans-serif;
+  --tab:       36px;
+  --doc:       720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--fb); font-size: 15px; line-height: 1.75; color: var(--carbon); background: #d8dbd9; }
+
+/* ─── TOP NAV ──────────────────────────────── */
+.top-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  background: var(--carbon); height: 50px;
+  display: flex; align-items: center; padding: 0 20px; gap: 0;
+  box-shadow: 0 2px 16px rgba(0,0,0,.35);
+}
+.nav-brand { font-family: var(--fd); font-size: 14px; color: white; white-space: nowrap; margin-right: 16px; padding-right: 16px; border-right: 1px solid rgba(255,255,255,.15); }
+.nav-brand span { color: var(--gold); }
+.nav-links { display: flex; gap: 2px; flex: 1; overflow-x: auto; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 9px; border-radius: 4px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-links a:hover { color: white; background: rgba(255,255,255,.09); }
+.nav-links a.done { color: var(--teal); }
+.nav-right { display: flex; align-items: center; gap: 10px; margin-left: 12px; flex-shrink: 0; }
+.nav-help { color: var(--gold); text-decoration: none; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; padding: 5px 10px; border: 1px solid rgba(164,129,17,.45); border-radius: 5px; transition: all .15s; }
+.nav-help:hover { background: rgba(164,129,17,.15); color: #fff; }
+.gloss-link { color: var(--teal); text-decoration: none; border-bottom: 1px dotted var(--teal); cursor: help; }
+.gloss-link:hover { color: var(--teal-dk); border-bottom-style: solid; }
+.pb-wrap { width: 100px; height: 3px; background: rgba(255,255,255,.12); border-radius: 2px; }
+.pb-fill { height: 3px; background: var(--teal); border-radius: 2px; transition: width .4s ease; width: 0%; }
+.pb-pct { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.45); min-width: 28px; }
+.save-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.2); transition: background .3s; }
+.save-dot.saving { background: var(--gold); }
+.save-dot.saved  { background: var(--teal); }
+
+/* ─── DOCUMENT WRAPPER ─────────────────────── */
+.doc-wrap { max-width: var(--doc); margin: 68px auto 80px; display: flex; flex-direction: column; gap: 3px; }
+.doc-wrap > * { box-shadow: 0 2px 20px rgba(0,0,0,.13); }
+/* ─── FIXED PAGE CONTAINERS ─────────────── */
+.page { min-height: 932px; background: white; display: flex; flex-direction: column; }
+.page .p-layout { flex: 1; }
+
+/* ─── RUNNING HEADER ─────────────────────── */
+.run-header { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(30,42,56,.35); text-align: center; padding: 12px 0 10px; border-bottom: 1px solid var(--platinum); }
+
+/* ─── PAGE LAYOUT ─────────────────────────── */
+.p-layout { display: flex; background: white; position: relative; }
+.s-tab { flex: 0 0 var(--tab); background: var(--teal); display: flex; align-items: center; justify-content: center; min-height: 180px; }
+.s-tab .lbl { writing-mode: vertical-rl; transform: rotate(180deg); font-weight: 700; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: white; white-space: nowrap; }
+.p-body { flex: 1; padding: 36px 40px 36px 28px; }
+
+/* ─── PAGE FOOTER ─────────────────────────── */
+.p-footer { background: white; display: flex; align-items: center; padding: 8px 40px 10px calc(var(--tab) + 28px); gap: 14px; border-top: 1px solid var(--platinum); }
+.p-footer .rule { flex: 1; height: 1px; background: var(--platinum); }
+.p-footer .pnum { font-size: 10px; font-weight: 700; color: white; background: var(--teal); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* ─── COVER ────────────────────────────────── */
+.cover-page { background: white; min-height: 932px; display: flex; flex-direction: column; }
+.cover-visual { height: 300px; background: var(--teal); position: relative; overflow: hidden; }
+.cover-visual svg { width: 100%; height: 100%; display: block; }
+.cover-band { background: var(--carbon); padding: 26px 44px 30px; }
+.c-sprint-lbl { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-bottom: 10px; }
+.c-theme { font-family: var(--fd); font-size: 34px; color: white; line-height: 1.2; letter-spacing: -.01em; }
+.cover-body { padding: 24px 44px 16px; background: white; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.c-program { font-size: 22px; font-weight: 700; color: var(--carbon); margin-bottom: 10px; }
+.c-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); border: 1.5px solid var(--teal); padding: 4px 14px; border-radius: 30px; margin-bottom: 24px; }
+.student-row { display: flex; gap: 14px; flex-wrap: wrap; padding: 20px 0 4px; border-top: 1px solid var(--platinum); }
+.s-field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 140px; }
+.s-field label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(30,42,56,.45); }
+.s-field input { border: 1.5px solid var(--platinum); border-radius: 6px; padding: 8px 12px; font-family: var(--fb); font-size: 14px; font-weight: 500; color: var(--carbon); background: #fafafa; outline: none; transition: border-color .2s; }
+.s-field input:focus { border-color: var(--teal); background: white; }
+.s-field input::placeholder { color: rgba(30,42,56,.28); }
+.cover-foot { background: var(--carbon); padding: 12px 44px; display: flex; align-items: center; justify-content: space-between; }
+.cf-text { font-size: 12px; font-weight: 500; color: rgba(255,255,255,.6); }
+.cf-text strong { color: white; }
+
+/* ─── SECTION TYPOGRAPHY ─────────────────── */
+.sec-title { font-family: var(--fd); font-size: 30px; color: var(--carbon); line-height: 1.25; letter-spacing: -.01em; border-bottom: 2px solid var(--platinum); padding-bottom: 12px; margin-bottom: 22px; }
+.sec-sublabel { font-size: 12px; font-weight: 600; letter-spacing: .06em; color: var(--teal); margin-bottom: 8px; }
+p { margin-bottom: 15px; } p:last-child { margin-bottom: 0; } strong { font-weight: 700; }
+
+/* ─── TOC ────────────────────────────────── */
+.toc-entry { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--teal-bg); }
+.toc-entry:last-child { border-bottom: none; }
+.toc-group { margin-bottom: 28px; }
+.toc-group-head { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--carbon); margin-bottom: 2px; }
+.toc-name { font-size: 15px; color: rgba(30,42,56,.75); }
+.toc-pg { font-weight: 700; font-size: 13px; color: var(--teal); }
+
+/* ─── MENSAJE ────────────────────────────── */
+.msg-layout { display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: start; }
+.msg-img { background: var(--teal-bg); border: 1px solid var(--platinum); border-radius: 8px; aspect-ratio: 3/4; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.msg-title { font-family: var(--fd); font-size: 24px; color: var(--teal); margin-bottom: 8px; }
+.sig-block { margin-top: 22px; }
+.sig-line { width: 80px; height: 1px; background: var(--carbon); margin-bottom: 5px; }
+.sig-name { font-size: 12px; font-weight: 700; color: var(--carbon); }
+.sig-role { font-size: 11px; color: rgba(30,42,56,.55); }
+
+/* ─── INSTRUCCIONES ─────────────────────── */
+.ni { margin-bottom: 26px; }
+.ni-head { font-size: 15px; font-weight: 700; color: var(--carbon); margin-bottom: 8px; }
+.ni-head .nn { color: var(--teal); margin-right: 4px; }
+.ni-text { padding-left: 22px; font-size: 14px; line-height: 1.75; color: rgba(30,42,56,.82); }
+.quote-band { margin-top: 36px; padding: 18px 24px; border-left: 4px solid var(--gold); background: var(--gold-bg); border-radius: 0 8px 8px 0; }
+.quote-band p { font-style: italic; font-size: 14px; color: var(--carbon); margin: 0; }
+.quote-band p::before { content: '\201C'; } .quote-band p::after { content: '\201D'; }
+
+/* ─── EXPERIMENT SHARED ──────────────────── */
+.exp-lbl { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.sdiv { height: 1px; background: var(--platinum); margin: 28px 0; }
+.gold-acc { border-left: 4px solid var(--gold); padding: 14px 18px 14px 22px; background: var(--gold-bg); border-radius: 0 8px 8px 0; margin: 18px 0; }
+.gold-acc p { font-style: italic; font-size: 14px; color: var(--carbon); margin: 0; }
+.note { margin: 16px 0; padding: 12px 16px; background: var(--gold-bg); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; }
+.note-hd { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--gold); margin-bottom: 4px; }
+.note p { font-size: 12px; line-height: 1.65; color: rgba(30,42,56,.72); margin: 0; }
+
+/* ─── REPORT IDENTIFICATION BLOCK ─────── */
+.report-id-block { background: var(--carbon); border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; }
+.rid-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.rid-badge { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: white; background: var(--teal); padding: 4px 12px; border-radius: 20px; flex-shrink: 0; }
+.rid-title { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.55); letter-spacing: .08em; text-transform: uppercase; }
+.rid-fields { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.rid-field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 155px; }
+.rid-field label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+.rid-field input[type="text"], .rid-field input[type="date"] { border: 1.5px solid rgba(30,42,56,.18); border-radius: 6px; padding: 8px 12px; background: #d2d0c8; font-family: var(--fb); font-size: 13px; font-weight: 500; color: var(--carbon); outline: none; transition: border-color .2s, background .2s; }
+.rid-field input:focus { border-color: var(--teal); background: #e4e2da; }
+.rid-field input::placeholder { color: rgba(30,42,56,.38); }
+.rid-field input[type="date"]::-webkit-calendar-picker-indicator { opacity: .5; }
+.rid-level { border-top: 1px solid rgba(255,255,255,.1); padding-top: 14px; }
+.rid-level-lbl { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 10px; }
+.level-opts { display: flex; gap: 10px; flex-wrap: wrap; }
+.level-opt { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,.12); cursor: pointer; transition: all .2s; }
+.level-opt:hover { border-color: var(--teal); background: rgba(46,139,118,.12); }
+.level-opt input[type="radio"] { accent-color: var(--teal); width: 15px; height: 15px; cursor: pointer; }
+.level-opt span { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.7); }
+
+/* ─── IP GUARDRAIL ───────────────────────── */
+.ip-guard { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; background: rgba(164,129,17,.07); border: 1px solid rgba(164,129,17,.2); border-radius: 8px; margin-bottom: 24px; }
+.ip-guard-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.ip-guard span { font-size: 12px; color: rgba(30,42,56,.7); line-height: 1.65; }
+
+/* ─── EXP META ROW ───────────────────────── */
+.exp-meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.entregable-badge { padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: .06em; background: rgba(194,89,63,.1); color: #c2593f; border: 1px solid rgba(194,89,63,.25); }
+
+/* ─── STEP LIST ──────────────────────────── */
+.step-list { list-style: none; counter-reset: sc; margin: 0 0 20px; }
+.step-list li { counter-increment: sc; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; padding: 11px 14px; background: #fafafa; border: 1px solid var(--platinum); border-radius: 8px; }
+.step-list li::before { content: counter(sc); flex: 0 0 26px; height: 26px; background: var(--carbon); color: white; font-weight: 700; font-size: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.step-list li span { font-size: 13px; line-height: 1.65; color: rgba(30,42,56,.82); padding-top: 2px; }
+
+/* ─── IA ROLE BLOCK ──────────────────────── */
+.ia-role { display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; background: var(--teal-bg); border: 1px solid var(--teal-bd); border-radius: 8px; margin: 16px 0 24px; }
+.ia-role-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.ia-role span { font-size: 12px; color: rgba(30,42,56,.75); line-height: 1.65; }
+
+/* ─── METRIC CARDS ───────────────────────── */
+.metric-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+.metric-card { padding: 14px 16px; border-radius: 8px; background: #fafafa; border: 1px solid var(--platinum); }
+.metric-card.beh { border-top: 3px solid var(--teal); }
+.metric-card.eff { border-top: 3px solid var(--gold); }
+.metric-card-lbl { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 6px; }
+.metric-card.beh .metric-card-lbl { color: var(--teal); }
+.metric-card.eff .metric-card-lbl { color: var(--gold); }
+.metric-card p { font-size: 13px; line-height: 1.65; color: rgba(30,42,56,.8); margin: 0; }
+.metric-rows { margin: 0; }
+.metric-row { display: grid; grid-template-columns: 88px 1fr; gap: 8px; padding: 6px 0; border-top: 1px solid var(--platinum); }
+.metric-row:first-child { border-top: none; padding-top: 2px; }
+.metric-row dt { font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(30,42,56,.5); line-height: 1.4; }
+.metric-card.eff .metric-row dt { color: rgba(164,129,17,.7); }
+.metric-card.beh .metric-row dt { color: rgba(46,139,118,.8); }
+.metric-row dd { font-size: 12px; line-height: 1.55; color: rgba(30,42,56,.8); margin: 0; }
+
+/* ─── FILL AREAS ─────────────────────────── */
+.fill { margin: 14px 0 22px; }
+.fill-lbl { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--carbon); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+.fill-lbl::after { content: ''; flex: 1; height: 1px; background: var(--platinum); }
+textarea { width: 100%; min-height: 110px; border: 1.5px solid var(--platinum); border-radius: 8px; padding: 12px 14px; font-family: var(--fb); font-size: 13px; line-height: 1.7; color: var(--carbon); background: #fafafa; resize: vertical; outline: none; transition: border-color .2s, background .2s; }
+textarea:focus { border-color: var(--teal); background: white; }
+textarea.filled { border-color: var(--teal); background: white; }
+textarea::placeholder { color: rgba(30,42,56,.28); font-style: italic; }
+.field-guide { font-size: 11.5px; line-height: 1.6; color: rgba(30,42,56,.66); background: rgba(46,139,118,.05); border-left: 3px solid var(--teal); border-radius: 0 6px 6px 0; padding: 9px 12px; margin-bottom: 8px; }
+.fill-obs .field-guide { background: var(--gold-bg); border-left-color: var(--gold); }
+.char-ct { font-size: 10px; color: rgba(30,42,56,.35); text-align: right; margin-top: 3px; }
+
+/* ─── OBSERVATION FIELD ──────────────────── */
+.fill-obs { border-top: 1px dashed var(--platinum); padding-top: 20px; margin-top: 8px; }
+.fill-obs .fill-lbl { color: var(--gold); }
+.fill-obs .fill-lbl::after { background: rgba(164,129,17,.25); }
+.fill-obs textarea { border-color: rgba(164,129,17,.2); }
+.fill-obs textarea:focus { border-color: var(--gold); background: white; }
+
+/* ─── SUBMIT SECTION ─────────────────────── */
+.submit-sec { margin-top: 36px; padding: 24px 28px; background: var(--teal-bg); border: 1px solid var(--teal-bd); border-radius: 10px; }
+.submit-sec h3 { font-weight: 700; font-size: 15px; color: var(--carbon); margin-bottom: 6px; }
+.submit-sec p { font-size: 13px; color: rgba(30,42,56,.7); margin-bottom: 18px; }
+.submit-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
+.btn-sub { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: white; font-family: var(--fb); font-weight: 700; font-size: 13px; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; transition: background .2s; }
+.btn-sub:hover { background: var(--teal-dk); }
+.btn-sub.done { background: #2a6b50; }
+.btn-print { display: inline-flex; align-items: center; gap: 7px; background: transparent; color: var(--teal); font-family: var(--fb); font-weight: 700; font-size: 13px; padding: 12px 20px; border: 1.5px solid var(--teal); border-radius: 8px; cursor: pointer; transition: all .2s; }
+.btn-print:hover { background: var(--teal-bg); }
+.sub-ok { margin-top: 10px; font-size: 12px; color: var(--teal); font-weight: 700; display: none; }
+.sub-ok.show { display: block; }
+
+/* ─── MODAL ──────────────────────────────── */
+.modal-ov { display: none; position: fixed; inset: 0; background: rgba(30,42,56,.8); z-index: 9999; align-items: center; justify-content: center; }
+.modal-ov.open { display: flex; }
+.modal { background: white; border-radius: 12px; padding: 32px 36px; max-width: 560px; width: 90%; max-height: 82vh; overflow-y: auto; }
+.modal-title { font-family: var(--fd); font-size: 20px; color: var(--carbon); margin-bottom: 6px; }
+.modal-sub { font-size: 12px; color: rgba(30,42,56,.55); margin-bottom: 22px; }
+.modal-body { background: #fafafa; border: 1px solid var(--platinum); border-radius: 8px; padding: 14px; font-size: 12px; line-height: 1.7; color: var(--carbon); white-space: pre-wrap; max-height: 220px; overflow-y: auto; font-family: monospace; margin-bottom: 20px; }
+.modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.modal-actions.sent #btn-send { background: var(--teal-dk); cursor: default; opacity: .85; }
+.modal-alert { display: none; }
+.modal-alert.show { display: block; border-radius: 8px; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; margin-bottom: 16px; border-left: 4px solid; }
+.modal-alert ul { margin: 6px 0 0; padding-left: 18px; }
+.modal-alert li { margin-bottom: 3px; }
+.modal-alert .mini { font-size: 11px; opacity: .75; }
+.modal-alert.info { background: rgba(46,139,118,.07); border-color: var(--teal); color: var(--carbon); }
+.modal-alert.ok   { background: rgba(46,139,118,.12); border-color: var(--teal); color: var(--carbon); }
+.modal-alert.err  { background: rgba(194,89,63,.09);  border-color: #c2593f;     color: var(--carbon); }
+.btn-m { display: inline-flex; align-items: center; gap: 6px; font-family: var(--fb); font-weight: 700; font-size: 12px; padding: 10px 18px; border-radius: 8px; border: none; cursor: pointer; transition: all .2s; }
+.btn-m.p { background: var(--teal); color: white; } .btn-m.p:hover { background: var(--teal-dk); }
+.btn-m.s { background: transparent; color: var(--carbon); border: 1.5px solid var(--platinum); } .btn-m.s:hover { background: #f5f5f5; }
+
+/* ─── BACK COVER ─────────────────────────── */
+.back-cover { background: white; min-height: 932px; display: flex; flex-direction: column; }
+.bc-band { background: var(--carbon); padding: 26px 44px 30px; }
+.bc-sprint { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-bottom: 10px; }
+.bc-theme { font-family: var(--fd); font-size: 34px; color: white; line-height: 1.2; letter-spacing: -.01em; }
+.bc-spacer { flex: 1; background: white; display: flex; align-items: center; justify-content: center; }
+.bc-foot { background: var(--gold); padding: 14px 44px; display: flex; justify-content: center; align-items: center; }
+.bc-foot-t { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.90); letter-spacing: .04em; }
+
+/* ─── PRINT / PDF ────────────────────────── */
+@media print {
+  .scale-box, .hyp, .felt, .num-pair { page-break-inside: avoid; break-inside: avoid; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .top-nav, .modal-ov, .btn-print, .submit-actions, .submit-sec, .pb-wrap, .pb-pct, .save-dot { display: none !important; }
+  body { background: white !important; }
+  .doc-wrap { margin: 0 !important; max-width: 100% !important; gap: 0 !important; }
+  .doc-wrap > * { box-shadow: none !important; }
+  .page, .cover-page, .back-cover { height: 10.1in !important; min-height: unset !important; page-break-after: always; break-after: page; overflow: hidden; }
+  .report-id-block { background: #1e2a38 !important; page-break-inside: avoid; break-inside: avoid; }
+  .metric-pair, .ia-role, .step-list, .note, .gold-acc, .quote-band, .ni { page-break-inside: avoid; break-inside: avoid; }
+  .char-ct, .ip-guard, .field-guide { display: none !important; }
+  textarea { border: 1px solid #c0c4c2 !important; background: white !important; min-height: 50px !important; resize: none !important; overflow: visible !important; height: auto !important; }
+  @page { size: letter portrait; margin: 0.45in; }
+}
+@media (max-width: 600px) {
+  .msg-layout { grid-template-columns: 1fr; } .msg-img { display: none; }
+  .s-tab { display: none; } .p-body { padding: 28px 22px; }
+  .metric-pair { grid-template-columns: 1fr; }
+  .rid-fields { flex-direction: column; } .level-opts { flex-direction: column; }
+}
+
+/* ─── AJUSTES DE ESTE PROGRAMA ─────────────────── */
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: .06em; }
+.chip-cic { background: rgba(46,139,118,.1); color: var(--teal); border: 1px solid var(--teal-bd); }
+.chip-bar { background: rgba(164,129,17,.08); color: var(--gold); border: 1px solid rgba(164,129,17,.25); }
+.chip-dic { background: rgba(30,42,56,.07); color: var(--carbon); border: 1px solid var(--platinum); }
+.chip-tmp { background: rgba(194,89,63,.08); color: #c2593f; border: 1px solid rgba(194,89,63,.25); }
+.route { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 4px 0 20px; }
+.route .stp { padding: 8px 10px; border: 1px solid var(--platinum); border-radius: 8px; background: #fafafa; font-size: 11px; font-weight: 600; line-height: 1.35; color: rgba(30,42,56,.55); }
+.route .stp b { display: block; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 2px; color: rgba(30,42,56,.45); }
+.route .stp.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+.route .stp.on b { color: rgba(255,255,255,.8); }
+.route .stp.past { background: var(--teal-bg); border-color: var(--teal-bd); color: var(--teal); }
+.hyp { border: 1.5px solid var(--teal); border-radius: 10px; padding: 16px 18px; margin: 18px 0; background: var(--teal-bg); }
+.hyp-hd { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.hyp p { font-size: 13px; line-height: 1.65; margin-bottom: 8px; }
+.hyp ol { margin: 6px 0 0 20px; padding: 0; }
+.hyp li { font-size: 13px; line-height: 1.6; margin-bottom: 4px; }
+.hyp-ex { margin-top: 12px; padding: 10px 14px; background: #fff; border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; font-size: 12px; line-height: 1.65; color: rgba(30,42,56,.82); }
+.felt { margin: 18px 0; padding: 14px 18px; background: var(--gold-bg); border: 1px solid rgba(164,129,17,.25); border-radius: 10px; }
+.felt .felt-hd { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.felt p { font-size: 13px; line-height: 1.7; margin-bottom: 8px; }
+.felt p.sust { font-size: 11px; line-height: 1.6; color: rgba(30,42,56,.6); }
+.scale-box { margin: 10px 0 20px; padding: 10px 16px; border: 1px solid var(--platinum); border-radius: 8px; background: #fafafa; }
+.scale-row { display: grid; grid-template-columns: 1fr repeat(5, 38px); align-items: center; gap: 4px; padding: 6px 0; border-top: 1px solid var(--platinum); }
+.scale-row.hd-row { border-top: none; padding: 2px 0; }
+.scale-row .nm { font-size: 13px; font-weight: 600; }
+.scale-row .hd { font-size: 10px; font-weight: 700; text-align: center; color: rgba(30,42,56,.5); }
+.scale-row label.sc { display: flex; justify-content: center; cursor: pointer; }
+.scale-row input[type="radio"] { accent-color: var(--teal); width: 16px; height: 16px; cursor: pointer; }
+.scale-note { font-size: 10.5px; color: rgba(30,42,56,.55); margin-top: 6px; }
+.report-id-block .scale-box { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.12); margin-bottom: 4px; }
+.report-id-block .scale-row { border-top-color: rgba(255,255,255,.1); }
+.report-id-block .scale-row .nm { color: rgba(255,255,255,.78); }
+.report-id-block .scale-row .hd { color: rgba(255,255,255,.45); }
+.rid-field input[type="number"] { border: 1.5px solid rgba(30,42,56,.18); border-radius: 6px; padding: 8px 12px; background: #d2d0c8; font-family: var(--fb); font-size: 13px; font-weight: 500; color: var(--carbon); outline: none; }
+.dec-opts { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 18px; }
+.dec-opt { display: flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1.5px solid var(--platinum); border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; background: #fff; transition: border-color .2s; }
+.dec-opt:hover { border-color: var(--teal); }
+.dec-opt input { accent-color: var(--teal); width: 15px; height: 15px; }
+.num-pair { display: flex; gap: 12px; flex-wrap: wrap; margin: 4px 0 10px; }
+.num-pair .nf { flex: 1; min-width: 210px; display: flex; flex-direction: column; gap: 4px; }
+.num-pair label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(30,42,56,.55); }
+.num-pair input { border: 1.5px solid var(--platinum); border-radius: 6px; padding: 8px 12px; font-family: var(--fb); font-size: 14px; background: #fafafa; outline: none; }
+.num-pair input:focus { border-color: var(--teal); background: #fff; }
+.entregable-badge { padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: .06em; background: rgba(194,89,63,.1); color: #c2593f; border: 1px solid rgba(194,89,63,.25); }
+.step-list li span strong { color: var(--teal); }
+.rid-field.wide { flex: 1 1 100%; }
+@media (max-width: 600px) { .route { grid-template-columns: 1fr 1fr; } .scale-row { grid-template-columns: 1fr repeat(5, 30px); } }
+
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="nav-brand">DCA · <span>ADN IA</span></div>
+  <div class="nav-links">
+    <a href="#portada">Portada</a><a href="#contenido">Contenido</a><a href="#mensaje">Mensaje</a><a href="#instrucciones">Instrucciones</a><a href="#exp-101" id="nav-101">Sem. 1 · Creencias</a><a href="#exp-102" id="nav-102">Sem. 2 · Capacidades</a><a href="#exp-103" id="nav-103">Sem. 3 · Líder</a><a href="#exp-104" id="nav-104">Sem. 4 · Cultura</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-help" href="../centro-adn-ia/" target="_blank" rel="noopener">Centro de Ayuda ↗</a>
+    <div class="pb-wrap"><div class="pb-fill" id="pbFill"></div></div>
+    <span class="pb-pct" id="pbPct">0%</span>
+    <div class="save-dot" id="saveDot"></div>
+  </div>
+</nav>
+
+<div class="doc-wrap">
+
+<section class="cover-page" id="portada">
+  <div class="cover-visual"><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs><pattern id="dotsa" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.2" fill="rgba(30,42,56,0.28)"/></pattern></defs>
+      <rect width="720" height="300" fill="#2e8b76"/><rect width="720" height="300" fill="url(#dotsa)"/>
+      <path d="M 60 262 Q 360 30 660 262" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1.5"/>
+      <line x1="60" y1="262" x2="660" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+      <line x1="144" y1="206" x2="144" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/><line x1="288" y1="153" x2="288" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/><line x1="432" y1="153" x2="432" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/><line x1="576" y1="206" x2="576" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+      <circle cx="144" cy="206" r="26" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="2"/><circle cx="144" cy="206" r="14" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="1.5"/><circle cx="144" cy="206" r="5" fill="rgba(255,255,255,0.88)"/><text x="144" y="170" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 1</text><text x="144" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">ACTIVACIÓN</text><circle cx="288" cy="153" r="26" fill="none" stroke="rgba(210,208,200,0.65)" stroke-width="2"/><circle cx="288" cy="153" r="14" fill="none" stroke="rgba(210,208,200,0.65)" stroke-width="1.5"/><circle cx="288" cy="153" r="5" fill="rgba(210,208,200,0.92)"/><text x="288" y="117" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 2</text><text x="288" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">ACCIÓN</text><circle cx="432" cy="153" r="26" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="2"/><circle cx="432" cy="153" r="14" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="1.5"/><circle cx="432" cy="153" r="5" fill="rgba(255,255,255,0.88)"/><text x="432" y="117" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 3</text><text x="432" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">REPETICIÓN</text><circle cx="576" cy="206" r="26" fill="none" stroke="rgba(30,42,56,0.78)" stroke-width="2"/><circle cx="576" cy="206" r="14" fill="none" stroke="rgba(30,42,56,0.78)" stroke-width="1.5"/><circle cx="576" cy="206" r="5" fill="rgba(30,42,56,0.88)"/><text x="576" y="170" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 4</text><text x="576" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">TRANSFORMACIÓN</text>
+      <text x="360" y="298" fill="rgba(255,255,255,0.5)" font-family="sans-serif" font-size="7" font-weight="700" text-anchor="middle" letter-spacing="3">PUENTE DE EVOLUCIÓN</text>
+    </svg></div>
+  <div class="cover-band">
+    <div class="c-sprint-lbl">Sprint Roadmap · ADN IA Cultura y Cambio</div>
+    <div class="c-theme">Experimentos en el flujo diario</div>
+  </div>
+  <div class="cover-body">
+    <div class="c-program">Sprint ADN IA Cultura y Cambio</div>
+    <div class="c-badge">Experimentos para la puesta en práctica de aprendizajes · DCA</div>
+    <div class="student-row">
+      <div class="s-field"><label>Participante</label><input type="text" id="sf-nombre" data-save="sf-nombre" placeholder="Nombre completo"></div>
+      <div class="s-field"><label>Correo electrónico</label><input type="email" id="sf-email" data-save="sf-email" placeholder="tu@empresa.com" autocomplete="email"></div>
+      <div class="s-field"><label>Organización</label><input type="text" id="sf-empresa" data-save="sf-empresa" placeholder="Empresa"></div>
+      <div class="s-field"><label>Cohorte</label><input type="text" id="sf-cohorte" data-save="sf-cohorte" placeholder="Ej. ADN-2026-01"></div>
+    </div>
+  </div>
+  <div class="cover-foot">
+    <div class="cf-text"><strong>Mentor:</strong> César Lozano</div>
+    <div class="cf-text"><strong>Digital Change Advisors</strong> · MATCH</div>
+  </div>
+</section>
+
+
+<div class="page" id="contenido">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Contenido</span></div>
+    <div class="p-body">
+      <h1 class="sec-title">¿Qué encontrarás en este Roadmap?</h1>
+      <div class="toc-group">
+        <div class="toc-entry"><span class="toc-name">Mensaje del Mentor</span><span class="toc-pg">02</span></div>
+        <div class="toc-entry"><span class="toc-name">Instrucciones de uso del Roadmap</span><span class="toc-pg">03</span></div>
+      </div>
+      <div class="toc-group">
+        <div class="toc-group-head">Experimento 1 &nbsp;·&nbsp; Semana 1</div>
+        <div class="toc-entry"><span class="toc-name">Lo que frena la conducta se escucha antes de comunicarlo</span><span class="toc-pg">04</span></div>
+      </div>
+      <div class="toc-group">
+        <div class="toc-group-head">Experimento 2 &nbsp;·&nbsp; Semana 2</div>
+        <div class="toc-entry"><span class="toc-name">Rediseño un paso de mi práctica y lo aprendo mientras lo hago</span><span class="toc-pg">09</span></div>
+      </div>
+      <div class="toc-group">
+        <div class="toc-group-head">Experimento 3 &nbsp;·&nbsp; Semana 3</div>
+        <div class="toc-entry"><span class="toc-name">Entrego al líder una línea de acción y observo si se repite</span><span class="toc-pg">14</span></div>
+      </div>
+      <div class="toc-group">
+        <div class="toc-group-head">Experimento 4 &nbsp;·&nbsp; Semana 4</div>
+        <div class="toc-entry"><span class="toc-name">Mido el cambio en la conducta de mi caso y actualizo mi práctica con la evidencia</span><span class="toc-pg">19</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">1</div><div class="rule"></div></div>
+</div>
+
+
+<div class="page" id="mensaje">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Mensaje</span></div>
+    <div class="p-body">
+      <div class="msg-layout">
+        <div class="msg-img"><svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+      <rect width="300" height="400" fill="#f3f7f5"/>
+      <rect x="0" y="262" width="62" height="138" fill="#1e2a38"/>
+      <rect x="238" y="262" width="62" height="138" fill="#1e2a38"/>
+      <path d="M 62 262 Q 150 120 238 262" fill="none" stroke="#2e8b76" stroke-width="3"/>
+      <line x1="62" y1="262" x2="238" y2="262" stroke="#2e8b76" stroke-width="2"/>
+      <line x1="94" y1="262" x2="94" y2="206" stroke="#2e8b76" stroke-width="1.5"/>
+      <line x1="125" y1="262" x2="125" y2="178" stroke="#2e8b76" stroke-width="1.5"/>
+      <line x1="156" y1="262" x2="156" y2="170" stroke="#2e8b76" stroke-width="1.5"/>
+      <line x1="187" y1="262" x2="187" y2="186" stroke="#2e8b76" stroke-width="1.5"/>
+      <circle cx="94" cy="206" r="6" fill="#a48111"/><circle cx="125" cy="178" r="6" fill="#a48111"/>
+      <circle cx="156" cy="170" r="6" fill="#a48111"/><circle cx="187" cy="186" r="6" fill="#a48111"/>
+      <text x="31" y="300" fill="#fff" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="1.5">ANTES</text>
+      <text x="269" y="300" fill="#fff" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="1.5">AHORA</text>
+      <text x="150" y="60" fill="#1e2a38" font-family="Georgia,serif" font-size="17" text-anchor="middle">Cuatro semanas,</text>
+      <text x="150" y="84" fill="#1e2a38" font-family="Georgia,serif" font-size="17" text-anchor="middle">cuatro pruebas</text>
+      <text x="150" y="360" fill="#2e8b76" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="2">PUENTE DE EVOLUCIÓN</text>
+    </svg></div>
+        <div>
+          <div class="msg-title">Mensaje del Mentor</div>
+          <p>En la sesión de fundamentación construiste tres cosas: un caso real de tu trabajo, una conducta meta que otra persona podría ver ocurrir y una primera lectura de cuál de las cuatro barreras pesa más en ese caso. Este roadmap es lo que sigue: cuatro semanas, un experimento por semana, dentro de tu propio flujo de trabajo.</p><p>Cada experimento responde a una lección y te pide algo distinto: escuchar lo que frena la conducta, rediseñar un paso de tu propia práctica, entregarle al líder una línea de acción y observar si se repite, y por último medir el cambio y decidir. No es un orden casual: cada semana haces más por tu cuenta y compromete más de tu práctica.</p><p>Lo que cuenta no es que tu hipótesis se cumpla. Lo que cuenta es que la escribas antes, que registres lo que pasó y que decidas —escalar, ajustar o descartar— con esa evidencia. Rectificar es un resultado esperado, no un fracaso.</p><p>Hay un componente que no vas a encontrar en un curso: cada semana tiene un momento diseñado para que sientas el beneficio de hacerlo distinto, y no solo para que lo entiendas. Es una apuesta de diseño del MATCH, y tu registro semanal es lo que la pone a prueba. Anótalo siempre, agradable o incómodo: lo sentido también es evidencia. Cuenta conmigo en la retroalimentación de cada semana.</p>
+          <div class="sig-block"><div class="sig-line"></div><div class="sig-name">César Lozano</div><div class="sig-role">Mentor · Digital Change Advisors</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">2</div><div class="rule"></div></div>
+</div>
+
+
+<div class="page" id="instrucciones">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Instrucciones</span></div>
+    <div class="p-body">
+      <h1 class="sec-title">Instrucciones de Uso</h1>
+      <div class="sec-sublabel">¿Cómo trabajar este roadmap semana a semana?</div>
+      <div class="ni"><div class="ni-head"><span class="nn">1.</span> Trabaja en la versión digital con autoguardado activo.</div><div class="ni-text">Este instrumento es HTML nativo con autoguardado automático: tus registros se conservan en el dispositivo mientras escribes. Trabaja siempre en el mismo navegador y equipo. Si vas a cambiar de equipo, <strong>envía antes</strong> lo que tengas listo: lo que no se ha enviado vive solo en el navegador donde lo escribiste.</div></div><div class="ni"><div class="ni-head"><span class="nn">2.</span> Completa el bloque de identificación antes de registrar evidencias.</div><div class="ni-text">Cada experimento abre con un bloque de identificación: caso, fecha de inicio y los datos propios de esa semana. En la semana 1 también trasladas aquí los pesos de las cuatro barreras que diste en tu tarjeta de caso durante la sesión.</div></div><div class="ni"><div class="ni-head"><span class="nn">3.</span> Cada semana tiene cinco días y cuatro horas.</div><div class="ni-text">El paso a paso de cada experimento trae los minutos de cada día; suman 240. Si un día no te alcanza, ajusta el plan dentro de la misma semana y no lo acumules para la siguiente.</div></div><div class="ni"><div class="ni-head"><span class="nn">4.</span> Escribe tu hipótesis antes de ejecutar.</div><div class="ni-text">Son cinco partes: conducta meta, cambio que introduces, cómo lo mides, criterio de éxito y decisión. <strong>El criterio de éxito y la decisión se fijan antes</strong>, no después de ver el resultado.</div></div><div class="ni"><div class="ni-head"><span class="nn">5.</span> Registra el momento sentido, también si es incómodo.</div><div class="ni-text">Cada experimento incluye un momento diseñado para que sientas el beneficio del nuevo escenario. Anota qué sentiste y con qué intensidad. No hay respuesta correcta: lo que sentiste es dato.</div></div><div class="ni"><div class="ni-head"><span class="nn">6.</span> Envía cada experimento al terminar la semana.</div><div class="ni-text">Al final de cada experimento encontrarás un botón de envío. Verás un número de recibo cuando tu mentor lo reciba. El envío es la condición que habilita su retroalimentación individual y es lo que permite valorar tu avance al cierre del sprint.</div></div>
+      <div class="note"><div class="note-hd">Cuida a las personas de tu caso</div><p>No registres nombres: usa el rol o las iniciales. No pegues frases ni datos que identifiquen a alguien en una herramienta de IA que tu empresa no haya autorizado. Si una conversación revela un riesgo para una persona, no lo registres ni lo uses.</p></div>
+      <div class="note"><div class="note-hd">Cómo leer los pesos de las cuatro barreras</div><p>Cada barrera —creencias, capacidades del rol, estilo del líder y cultura vigente— tiene un peso de 1 a 5 según cuánto frena tu conducta meta (1 = casi nada, 5 = es la que más pesa). Partes del peso que diste en tu tarjeta de caso y lo re-ponderas cada semana con la evidencia que produjiste.</p></div>
+      <div class="quote-band"><p>Lo que importa no es acertar con la hipótesis: es decidir con evidencia.</p></div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">3</div><div class="rule"></div></div>
+</div>
+
+
+<div class="page" id="exp-101">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 1</span></div>
+    <div class="p-body">
+      <div class="exp-lbl">Experimento 1 · Semana 1</div>
+      <h1 class="sec-title">Lo que frena la conducta se escucha antes de comunicarlo</h1>
+      <div class="exp-meta-row"><span class="chip chip-cic">Semana 1 · Activación</span><span class="chip chip-bar">Lección 1 (Creencias)</span><span class="chip chip-dic">DICO: componentes 2 y 3</span><span class="chip chip-tmp">Dedicación: 4 horas en 5 días</span></div>
+      <div class="route"><div class="stp on"><b>Semana 1</b>Activación</div><div class="stp "><b>Semana 2</b>Acción</div><div class="stp "><b>Semana 3</b>Repetición</div><div class="stp "><b>Semana 4</b>Transformación</div></div>
+      <div class="note">
+        <div class="note-hd">Conexión con la fundamentación</div>
+        <p><strong>Lección 1 · Lo que las personas creen. Exigencia: comunicar con honestidad y por rol.</strong></p>
+        <p><strong>1.1</strong> La resistencia que gestionamos como actitud es, casi siempre, una señal.</p><p><strong>1.2</strong> Comunicar con honestidad y por rol es la respuesta a una amenaza de identidad, no a falta de información.</p><p><strong>1.3</strong> Antes de intervenir, diagnostico lo que creen y temen perder las personas de mi caso.</p>
+      </div>
+      <p><em>Dejar de leer "resistencia" y empezar a leer una creencia específica, en palabras de la persona, ubicada en una pérdida que percibe: de identidad o estatus, de certeza, o de algo que el diseño del cambio no resuelve. Y traducirla en un mensaje por rol que diga qué cambia, qué no cambia, quién decide y cuándo. Si no distingues eso, el diagnóstico colapsa en un juicio único: "no quiere".</em></p>
+      <p><strong>Objetivo de aprendizaje:</strong> Al terminar la semana podrás: conversar con al menos dos personas de tu caso sin intentar convencerlas; registrar en sus palabras qué creen y qué temen perder; clasificar lo que escuchaste como pérdida de identidad, incertidumbre o falla de diseño; y redactar un mensaje por rol que la persona reconozca como cierto.</p>
+      <p><strong>Contexto de aplicación:</strong> Tu caso y tu conducta meta, tal como quedaron en tu tarjeta de caso. Trabajas con personas reales de tu caso, en sus espacios habituales de trabajo, sin convocar reuniones nuevas ni lanzar encuestas.</p>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">4</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 1</span></div>
+    <div class="p-body">
+      <div class="report-id-block">
+        <div class="rid-head"><span class="rid-badge">Experimento 1</span><span class="rid-title">Identificación del experimento</span></div>
+        <div class="rid-fields"><div class="rid-field"><label>Caso</label><input type="text" id="f-101-rid-caso" data-save="f-101-rid-caso" placeholder="Nombre corto de tu caso (sin datos sensibles)"></div><div class="rid-field"><label>Fecha de inicio</label><input type="date" id="f-101-rid-fecha" data-save="f-101-rid-fecha" placeholder=""></div><div class="rid-field wide"><label>Tu conducta meta</label><input type="text" id="f-101-rid-meta" data-save="f-101-rid-meta" placeholder="Una frase que otra persona podría ver ocurrir"></div><div class="rid-field wide"><label>Roles de las dos personas</label><input type="text" id="f-101-rid-roles" data-save="f-101-rid-roles" placeholder="Ej. analista de nómina y jefe de área (sin nombres)"></div><div class="rid-field"><label>Participante</label><input type="text" id="f-101-rid-part" data-save="f-101-rid-part" placeholder="Se sincroniza desde portada"></div></div>
+        <div class="rid-level">
+          <div class="rid-level-lbl">Pesos iniciales de las cuatro barreras (los que diste en tu tarjeta de caso: 1 = casi nada, 5 = la que más pesa)</div>
+          <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Creencias</span><label class="sc"><input type="radio" name="p0-creencias-101" value="1" data-radio-save="f-101-p0-creencias"></label><label class="sc"><input type="radio" name="p0-creencias-101" value="2" data-radio-save="f-101-p0-creencias"></label><label class="sc"><input type="radio" name="p0-creencias-101" value="3" data-radio-save="f-101-p0-creencias"></label><label class="sc"><input type="radio" name="p0-creencias-101" value="4" data-radio-save="f-101-p0-creencias"></label><label class="sc"><input type="radio" name="p0-creencias-101" value="5" data-radio-save="f-101-p0-creencias"></label></div><div class="scale-row"><span class="nm">Capacidades del rol</span><label class="sc"><input type="radio" name="p0-capacidades-101" value="1" data-radio-save="f-101-p0-capacidades"></label><label class="sc"><input type="radio" name="p0-capacidades-101" value="2" data-radio-save="f-101-p0-capacidades"></label><label class="sc"><input type="radio" name="p0-capacidades-101" value="3" data-radio-save="f-101-p0-capacidades"></label><label class="sc"><input type="radio" name="p0-capacidades-101" value="4" data-radio-save="f-101-p0-capacidades"></label><label class="sc"><input type="radio" name="p0-capacidades-101" value="5" data-radio-save="f-101-p0-capacidades"></label></div><div class="scale-row"><span class="nm">Estilo del líder</span><label class="sc"><input type="radio" name="p0-lider-101" value="1" data-radio-save="f-101-p0-lider"></label><label class="sc"><input type="radio" name="p0-lider-101" value="2" data-radio-save="f-101-p0-lider"></label><label class="sc"><input type="radio" name="p0-lider-101" value="3" data-radio-save="f-101-p0-lider"></label><label class="sc"><input type="radio" name="p0-lider-101" value="4" data-radio-save="f-101-p0-lider"></label><label class="sc"><input type="radio" name="p0-lider-101" value="5" data-radio-save="f-101-p0-lider"></label></div><div class="scale-row"><span class="nm">Cultura vigente</span><label class="sc"><input type="radio" name="p0-cultura-101" value="1" data-radio-save="f-101-p0-cultura"></label><label class="sc"><input type="radio" name="p0-cultura-101" value="2" data-radio-save="f-101-p0-cultura"></label><label class="sc"><input type="radio" name="p0-cultura-101" value="3" data-radio-save="f-101-p0-cultura"></label><label class="sc"><input type="radio" name="p0-cultura-101" value="4" data-radio-save="f-101-p0-cultura"></label><label class="sc"><input type="radio" name="p0-cultura-101" value="5" data-radio-save="f-101-p0-cultura"></label></div></div>
+        </div>
+      </div>
+      <div class="ip-guard"><span class="ip-guard-icon">🔒</span><span><strong>Límites del experimento.</strong> No es una entrevista formal ni una encuesta: son dos conversaciones de unos 30 minutos. No registres nombres: usa el rol o iniciales. No pegues frases textuales de las personas en una herramienta de IA que tu empresa no haya autorizado. No intentes convencer ni corregir: la persona sabe que estás explorando cómo diseñar mejor el cambio. Si una conversación revela un riesgo para la persona, no lo registres ni lo uses.</span></div>
+      <p style="font-weight:700;font-size:14px;color:var(--carbon);margin-bottom:12px;">Paso a paso · cinco días, 240 minutos</p>
+      <ul class="step-list"><li><span><strong>Día 1 · 45 minutos. Fija tu punto de partida.</strong> Cuenta con qué frecuencia ocurre tu conducta meta: sobre la semana anterior o con cinco días de observación, anota "ocurrió X de Y oportunidades". Elige las dos personas (de roles distintos si puedes). Escribe tu predicción: "Creo que [rol] teme perder…".</span></li><li><span><strong>Día 2 · 45 minutos. Conversación 1.</strong> Treinta minutos de conversación y quince de registro. Solo preguntas. Algunas que puedes usar: "¿Qué cambia para ti con esto?", "¿Qué te preocupa perder?", "¿Qué necesitarías saber para sentirte tranquilo?". Anota una frase textual de la persona.</span></li><li><span><strong>Día 3 · 45 minutos. Conversación 2.</strong> Igual que la anterior, con la segunda persona.</span></li><li><span><strong>Día 4 · 65 minutos. Clasifica y redacta.</strong> Clasifica cada hallazgo (pérdida de identidad o estatus, incertidumbre, falla de diseño). Compara con tu predicción. Identifica la creencia que más frena tu conducta meta. Redacta el mensaje por rol en cuatro renglones: qué cambia, qué no cambia, quién decide, cuándo se sabrá. Puedes usar IA para estresar tu clasificación y proponerte versiones alternativas del mensaje, sin identificar a nadie.</span></li><li><span><strong>Día 5 · 40 minutos. Valida, siente y decide.</strong> Devuelve tu síntesis a una de las personas: "¿esto es lo que quisiste decir?". Registra el momento sentido. Decide: escalar, ajustar o descartar. Re-pondera las cuatro barreras. Envía.</span></li></ul>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">5</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 1</span></div>
+    <div class="p-body">
+<div class="hyp"><div class="hyp-hd">Tu hipótesis · cinco partes</div><p>Escríbela el Día 1, antes de conversar, con cinco partes:</p><ol><li><strong>Conducta meta</strong> (tu tarjeta).</li><li><strong>Cambio que introduces:</strong> dos conversaciones de diagnóstico, sin convencer, y un mensaje por rol.</li><li><strong>Cómo lo mides:</strong> confirmación de la persona (sí, parcialmente, no) y comparación entre tu mensaje inicial y el final.</li><li><strong>Criterio de éxito:</strong> definido antes de conversar.</li><li><strong>Decisión:</strong> qué harás si se cumple (escalar), si se cumple a medias (ajustar) o si no se cumple (descartar).</li></ol><div class="hyp-ex"><em>Ejemplo ilustrativo, no es un dato.</em> "Si converso sin intentar convencer con dos personas de roles distintos y redacto un mensaje por rol, entonces al menos las dos confirmarán que mi síntesis refleja lo que creen, y mi mensaje final cambiará en al menos un renglón respecto del inicial. Escalar: ampliar a un tercer rol. Ajustar: cambiar las preguntas o las personas. Descartar: bajar el peso de las creencias en mi tarjeta."</div></div><div class="felt"><div class="felt-hd">El momento de beneficio sentido</div><p class="">El experimento está diseñado para que <em>sientas</em> algo, no solo para que lo entiendas. Ese momento ocurre el Día 5, cuando le devuelves la síntesis a la persona. Antes escribiste tu predicción; ahora ves si la persona dice "sí, eso es" o te corrige. Puedes sentir alivio, sorpresa o curiosidad al ver que alguien se siente comprendido, o la sorpresa de que tu predicción fallaba. También puedes sentir incomodidad: regístrala igual, porque también es evidencia.</p><p class=""><strong>Registra:</strong> qué sentiste en ese instante, con qué intensidad (1 a 5) y qué cambió en lo que ibas a comunicar.</p><p class="sust"><em>Sustento del diseño.</em> El aprendizaje se acelera cuando un resultado supera lo esperado (Schultz, Dayan y Montague, 1997; Cap. 4.5 del ensayo base). Que además esto acelere una habilidad laboral es una hipótesis de diseño de DCA.</p></div><div class="metric-pair"><div class="metric-card beh"><div class="metric-card-lbl">Métrica de comportamiento</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>Conversaciones de diagnóstico realizadas y registradas, cada una con una frase textual de la persona, la pérdida percibida y su clasificación.</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Conteo sobre tu registro.</dd></div><div class="metric-row"><dt>Línea base</dt><dd>Ninguna: hasta hoy etiquetabas sin diagnosticar.</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>Dos conversaciones registradas; dos clasificaciones; un mensaje por rol; una validación con la persona.</dd></div><div class="metric-row"><dt>Marcador observable</dt><dd>Dejas de escribir "resistencia" y nombras la creencia, la pérdida que percibe la persona y su clasificación.</dd></div></dl></div><div class="metric-card eff"><div class="metric-card-lbl">Efecto en la conducta del caso</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>Si la creencia que más frena tu conducta meta queda identificada y confirmada por la persona.</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Confirmación de la persona (sí, parcialmente, no).</dd></div><div class="metric-row"><dt>Línea base</dt><dd>Tu conteo del Día 1, que se vuelve el punto de partida de la conducta meta para todo el sprint.</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>Al menos una confirmación "sí" o "casi" y una frase textual que la respalde.</dd></div></dl></div></div><div class="ia-role"><span class="ia-role-icon">🤖</span><span><strong>Rol de la IA como andamiaje:</strong> Puedes usar la herramienta de IA que tu empresa te autorice para: contraargumentar tu clasificación, proponerte versiones alternativas del mensaje por rol y simular objeciones a tu mensaje. No la uses para escuchar por ti ni para decidir cuál es la creencia que más frena: esa lectura es tuya. No ingreses frases ni datos que identifiquen a las personas.</span></div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">6</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 1</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Tu hipótesis (cinco partes)</div>
+        <div class="field-guide">Escríbela el Día 1, antes de conversar:<br>1. Conducta meta<br>2. Cambio que introduces: dos conversaciones de diagnóstico, sin convencer, y un mensaje por rol<br>3. Cómo lo mides: confirmación de la persona (sí, parcialmente, no) y comparación entre tu mensaje inicial y el final<br>4. Criterio de éxito, definido antes de conversar<br>5. Decisión: qué harás si se cumple (escalar), si se cumple a medias (ajustar) o si no se cumple (descartar)</div>
+        
+        <textarea id="f-101-hip" data-save="f-101-hip" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-101-hip">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Punto de partida y predicción</div>
+        <div class="field-guide">Registra tu línea base y, por persona, tu predicción:<br>• Cuántas veces ocurrió tu conducta meta y en cuántas oportunidades pudo ocurrir (anótalo también en los dos números de abajo)<br>• «Creo que [rol] teme perder…»</div>
+        <div class="num-pair">
+          <div class="nf"><label for="f-101-n-x">Ocurrencias de tu conducta meta (línea base)</label><input type="number" min="0" inputmode="numeric" id="f-101-n-x" data-save="f-101-n-x" placeholder="0"></div>
+          <div class="nf"><label for="f-101-n-y">Oportunidades en que pudo ocurrir</label><input type="number" min="0" inputmode="numeric" id="f-101-n-y" data-save="f-101-n-y" placeholder="0"></div>
+        </div>
+        <textarea id="f-101-e1" data-save="f-101-e1" rows="5" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-101-e1">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Registro de conversaciones</div>
+        <div class="field-guide">Por cada conversación registra:<br>• Rol de la persona (sin nombre)<br>• Una frase textual suya<br>• La pérdida que percibe: de identidad o estatus, de certeza, o algo que el diseño del cambio no resuelve<br>• Tu clasificación y lo que habías predicho</div>
+        
+        <textarea id="f-101-e2" data-save="f-101-e2" rows="8" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-101-e2">0</span> caracteres</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">7</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 1</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Mensaje por rol</div>
+        <div class="field-guide">Escribe el mensaje en cuatro renglones: qué cambia, qué no cambia, quién decide y cuándo se sabrá. Incluye tu versión inicial, la final y qué cambió entre ellas.</div>
+        
+        <textarea id="f-101-e3" data-save="f-101-e3" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-101-e3">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Validación, momento sentido y decisión</div>
+        <div class="field-guide">Registra:<br>• Qué dijo la persona cuando le devolviste tu síntesis: sí, parcialmente o no<br>• Qué sentiste en ese instante y qué cambió en lo que ibas a comunicar<br>• Tu decisión (escalar, ajustar o descartar), por qué, y qué pasó con tu predicción</div>
+        
+        <textarea id="f-101-e4" data-save="f-101-e4" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-101-e4">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Cierre de la semana</div>
+        <div class="field-guide">Re-pondera las cuatro barreras con la evidencia de esta semana: 1 = casi nada, 5 = es la que más pesa en tu caso.</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Creencias</span><label class="sc"><input type="radio" name="w-creencias-101" value="1" data-radio-save="f-101-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-101" value="2" data-radio-save="f-101-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-101" value="3" data-radio-save="f-101-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-101" value="4" data-radio-save="f-101-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-101" value="5" data-radio-save="f-101-w-creencias"></label></div><div class="scale-row"><span class="nm">Capacidades del rol</span><label class="sc"><input type="radio" name="w-capacidades-101" value="1" data-radio-save="f-101-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-101" value="2" data-radio-save="f-101-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-101" value="3" data-radio-save="f-101-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-101" value="4" data-radio-save="f-101-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-101" value="5" data-radio-save="f-101-w-capacidades"></label></div><div class="scale-row"><span class="nm">Estilo del líder</span><label class="sc"><input type="radio" name="w-lider-101" value="1" data-radio-save="f-101-w-lider"></label><label class="sc"><input type="radio" name="w-lider-101" value="2" data-radio-save="f-101-w-lider"></label><label class="sc"><input type="radio" name="w-lider-101" value="3" data-radio-save="f-101-w-lider"></label><label class="sc"><input type="radio" name="w-lider-101" value="4" data-radio-save="f-101-w-lider"></label><label class="sc"><input type="radio" name="w-lider-101" value="5" data-radio-save="f-101-w-lider"></label></div><div class="scale-row"><span class="nm">Cultura vigente</span><label class="sc"><input type="radio" name="w-cultura-101" value="1" data-radio-save="f-101-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-101" value="2" data-radio-save="f-101-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-101" value="3" data-radio-save="f-101-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-101" value="4" data-radio-save="f-101-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-101" value="5" data-radio-save="f-101-w-cultura"></label></div></div>
+        <div class="fill-lbl" style="margin-top:6px">Tu decisión sobre la palanca de creencias</div>
+        <div class="dec-opts">
+          <label class="dec-opt"><input type="radio" name="dec-101" value="escalar" data-radio-save="f-101-dec">Escalar</label>
+          <label class="dec-opt"><input type="radio" name="dec-101" value="ajustar" data-radio-save="f-101-dec">Ajustar</label>
+          <label class="dec-opt"><input type="radio" name="dec-101" value="descartar" data-radio-save="f-101-dec">Descartar</label>
+        </div>
+        <div class="fill-lbl">Intensidad de lo que sentiste en el momento diseñado (1 = casi nada, 5 = muy intensa)</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Lo que sentí</span><label class="sc"><input type="radio" name="int-101" value="1" data-radio-save="f-101-int"></label><label class="sc"><input type="radio" name="int-101" value="2" data-radio-save="f-101-int"></label><label class="sc"><input type="radio" name="int-101" value="3" data-radio-save="f-101-int"></label><label class="sc"><input type="radio" name="int-101" value="4" data-radio-save="f-101-int"></label><label class="sc"><input type="radio" name="int-101" value="5" data-radio-save="f-101-int"></label></div></div>
+      </div>
+      <div class="fill fill-obs">
+        <div class="fill-lbl">Observaciones para tu mentor</div>
+        <div class="field-guide">Comparte con tu mentor cualquier hallazgo, dificultad o pregunta que haya surgido durante este experimento y que no esté capturado en los campos anteriores.</div>
+        <textarea id="f-101-obs" data-save="f-101-obs" rows="4" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-101-obs">0</span> caracteres</div>
+      </div>
+      <div class="submit-sec">
+        <h3>Envío del Experimento 1</h3>
+        <p>Al enviarlo se habilita la retroalimentación individual de tu mentor (Momento 5). Tu línea base y la frase textual de la creencia que más frena son el insumo directo del Experimento 3.</p>
+        <div class="submit-actions">
+          <button class="btn-sub" onclick="openModal('101')" id="btn-101">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 10l7-7 7 7M10 3v14"/></svg>
+            Enviar Experimento 1
+          </button>
+          <button class="btn-print" onclick="printExp('101')">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="4" y="2" width="12" height="8" rx="1"/><rect x="3" y="10" width="14" height="8" rx="1"/><rect x="7" y="13" width="6" height="5" rx="0.5" fill="currentColor" stroke="none"/></svg>
+            Guardar copia en PDF
+          </button>
+        </div>
+        <div class="sub-ok" id="ok-101">✓ Experimento 1 enviado correctamente.</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">8</div><div class="rule"></div></div>
+</div>
+
+<div class="page" id="exp-102">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 2</span></div>
+    <div class="p-body">
+      <div class="exp-lbl">Experimento 2 · Semana 2</div>
+      <h1 class="sec-title">Rediseño un paso de mi práctica y lo aprendo mientras lo hago</h1>
+      <div class="exp-meta-row"><span class="chip chip-cic">Semana 2 · Acción</span><span class="chip chip-bar">Lección 2 (Capacidades del rol)</span><span class="chip chip-dic">DICO: componente 3</span><span class="chip chip-tmp">Dedicación: 4 horas en 5 días</span></div>
+      <div class="route"><div class="stp past"><b>Semana 1</b>Activación</div><div class="stp on"><b>Semana 2</b>Acción</div><div class="stp "><b>Semana 3</b>Repetición</div><div class="stp "><b>Semana 4</b>Transformación</div></div>
+      <div class="note">
+        <div class="note-hd">Conexión con la fundamentación</div>
+        <p><strong>Lección 2 · Lo que el rol necesita poder hacer. Exigencia: rediseñar mi práctica y aprender en el flujo diario.</strong></p>
+        <p><strong>2.1</strong> Antes se capacitaba en la herramienta; ahora se rediseña la práctica y se aprende en el flujo diario.</p><p><strong>2.2</strong> Primero se rediseña la práctica; después se calibra la confianza por tarea y se aprende dentro del flujo.</p><p><strong>2.3</strong> Mi capacidad se construye en una tarea concreta de mi flujo, con práctica real.</p>
+      </div>
+      <p><em>Rediseñar un paso concreto de tu propia práctica <em>antes</em> de meterle IA; calibrar tu confianza en esa tarea con evidencia propia y no con opinión; y aprender haciendo la tarea en tu flujo, conservando una parte sin asistencia en lo que es crítico. Si te saltas el rediseño, solo sumas IA a un proceso que no cambió.</em></p>
+      <p><strong>Objetivo de aprendizaje:</strong> Al terminar la semana podrás: decidir qué de un paso de tu práctica se automatiza, qué se aumenta y qué se conserva; ejecutar el paso rediseñado tres veces en tu flujo real; construir un mapa de frontera (dentro, fuera o no sé) con evidencia de tus ejecuciones; y comparar tu predicción con el resultado.</p>
+      <p><strong>Contexto de aplicación:</strong> Una tarea de tu propia práctica profesional, por ejemplo: el primer borrador de un plan de comunicación, la síntesis de los comentarios abiertos de una encuesta de clima, el mapa de actores de un cambio, la malla de un programa de capacitación o la preparación de una conversación con un líder. El paso se ejecuta en tu flujo real: el mismo informe, la misma reunión, el mismo momento del proceso.</p>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">9</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 2</span></div>
+    <div class="p-body">
+      <div class="report-id-block">
+        <div class="rid-head"><span class="rid-badge">Experimento 2</span><span class="rid-title">Identificación del experimento</span></div>
+        <div class="rid-fields"><div class="rid-field"><label>Caso</label><input type="text" id="f-102-rid-caso" data-save="f-102-rid-caso" placeholder="Nombre corto de tu caso"></div><div class="rid-field"><label>Fecha de inicio</label><input type="date" id="f-102-rid-fecha" data-save="f-102-rid-fecha" placeholder=""></div><div class="rid-field wide"><label>Tarea y paso a rediseñar</label><input type="text" id="f-102-rid-tarea" data-save="f-102-rid-tarea" placeholder="Ej. síntesis de comentarios abiertos de la encuesta de clima"></div><div class="rid-field"><label>Herramienta de IA</label><input type="text" id="f-102-rid-herr" data-save="f-102-rid-herr" placeholder="Nombre y versión"></div><div class="rid-field"><label>Participante</label><input type="text" id="f-102-rid-part" data-save="f-102-rid-part" placeholder="Se sincroniza desde portada"></div></div>
+      </div>
+      <div class="ip-guard"><span class="ip-guard-icon">🔒</span><span><strong>Límites del experimento.</strong> Un solo paso de una sola tarea: no rediseñas procesos de otras personas. No ingreses información confidencial ni datos de personas en herramientas que tu empresa no haya autorizado. La IA no firma el resultado: lo verificas y lo firmas tú. Si el paso toca una decisión que no te corresponde, no lo uses para este experimento.</span></div>
+      <p style="font-weight:700;font-size:14px;color:var(--carbon);margin-bottom:12px;">Paso a paso · cinco días, 240 minutos</p>
+      <ul class="step-list"><li><span><strong>Día 1 · 50 minutos. Elige el paso y describe el antes.</strong> Cómo lo haces hoy: pasos, tiempo que toma y una lista de cinco criterios de calidad que usarás para juzgar el resultado. Decide qué se automatiza, qué se aumenta y qué conservas. Define qué parte harás sin asistencia, la que es crítica. Escribe tu predicción: "Creo que la IA lo hará bien o mal en… y tardaré…".</span></li><li><span><strong>Día 2 · 50 minutos. Ejecución 1.</strong> Aplica el paso rediseñado en tu flujo real. Verifica el resultado con tu lista de criterios. Registra tiempo, calidad y qué corregiste.</span></li><li><span><strong>Día 3 · 50 minutos. Ejecución 2.</strong> Incluye la parte crítica sin asistencia. Registra igual que antes.</span></li><li><span><strong>Día 4 · 50 minutos. Ejecución 3 y mapa de frontera.</strong> Tercera ejecución. Actualiza tu mapa de frontera de esta tarea: dentro, fuera o no sé, con la evidencia de tus tres ejecuciones. Compara tu predicción con lo ocurrido.</span></li><li><span><strong>Día 5 · 40 minutos. Cierra, siente y decide.</strong> Escribe el antes y el después del paso. Registra el momento sentido. Decide: escalar, ajustar o descartar. Re-pondera las cuatro barreras. Envía.</span></li></ul>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">10</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 2</span></div>
+    <div class="p-body">
+<div class="hyp"><div class="hyp-hd">Tu hipótesis · cinco partes</div><p>Escríbela el Día 1, con las cinco partes: conducta meta, cambio que introduces, cómo lo mides, criterio de éxito y decisión.</p><div class="hyp-ex"><em>Ejemplo ilustrativo, no es un dato.</em> "Si rediseño el paso de síntesis de comentarios abiertos de la encuesta de clima, de modo que la IA propone categorías, yo decido las finales y verifico leyendo una muestra sin asistencia, entonces en tres ejecuciones el tiempo bajará al menos 30% sin que el resultado baje de 4 de 5 criterios de calidad. Escalar: aplicar el rediseño a otro paso. Ajustar: cambiar qué parte conservo sin asistencia. Descartar: volver al método anterior para esta tarea y marcarla 'fuera' en el mapa."</div></div><div class="felt"><div class="felt-hd">El momento de beneficio sentido</div><p class="">El momento ocurre en el instante en que comparas tu predicción con el resultado de una ejecución. Puede ser una sorpresa positiva (la IA hizo mejor de lo que esperabas y tú lo verificaste), el alivio de una carga que te pesaba, o la satisfacción de detectar un error que la IA no vio. También puede ser frustración: regístrala. Lo que se diseñó es la comparación entre lo que esperabas y lo que pasó, porque esa diferencia es la que acelera el aprendizaje.</p><p class=""><strong>Registra:</strong> en qué ejecución ocurrió, qué sentiste, con qué intensidad (1 a 5) y en qué parte de la tarea.</p><p class="sust"><em>Sustento del diseño.</em> El aprendizaje se acelera cuando el resultado supera lo esperado, y las victorias deben ser atribuibles al esfuerzo propio (Schultz et al., 1997; Cap. 4.5 del ensayo base). Dell'Acqua et al. (2023) muestran que la frontera de la IA es irregular y que el usuario no la ve de antemano; Budzyń et al. (2025) y Shen y Tamkin (2026, preprint) dan señales de que conviene proteger la pericia con práctica sin asistencia. Son contextos distintos al tuyo: por eso lo mides en tu flujo.</p></div><div class="metric-pair"><div class="metric-card beh"><div class="metric-card-lbl">Métrica de comportamiento</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>Ejecuciones del paso rediseñado dentro de tu flujo real, con verificación tuya y una parte sin asistencia.</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Conteo sobre tu registro de ejecuciones.</dd></div><div class="metric-row"><dt>Línea base</dt><dd>Una ejecución anterior sin rediseño (la que describes en el Día 1).</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>Tres ejecuciones registradas; al menos una con la parte crítica sin asistencia; cada fila del mapa de frontera respaldada por evidencia, no por opinión.</dd></div><div class="metric-row"><dt>Marcador observable</dt><dd>La práctica ocurre en el paso del flujo, no en una sesión aparte.</dd></div></dl></div><div class="metric-card eff"><div class="metric-card-lbl">Efecto en la conducta del caso</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>Tiempo, calidad (lista de cinco criterios) y carga mental percibida (1 a 5) del paso, antes y después.</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Comparación entre tu descripción del Día 1 y tus tres ejecuciones.</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>El que fijaste en tu hipótesis.</dd></div></dl></div></div><div class="ia-role"><span class="ia-role-icon">🤖</span><span><strong>Rol de la IA como andamiaje:</strong> Aquí la IA es a la vez la herramienta y el objeto del experimento. Úsala en el paso rediseñado y pídele que argumente en contra de su propio resultado. No sustituye tu criterio: decides qué se queda, qué se corrige y qué se descarta. No ingreses información confidencial. Si la IA inventa una cifra o una fuente, regístralo: es un hallazgo de frontera.</span></div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">11</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 2</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Tu hipótesis (cinco partes)</div>
+        <div class="field-guide">Escríbela el Día 1, antes de ejecutar:<br>1. Conducta meta<br>2. Cambio que introduces: el paso rediseñado (qué se automatiza, qué se aumenta, qué conservas)<br>3. Cómo lo mides: tiempo, calidad frente a tus cinco criterios y carga mental percibida<br>4. Criterio de éxito, definido antes de ejecutar<br>5. Decisión: escalar, ajustar o descartar</div>
+        
+        <textarea id="f-102-hip" data-save="f-102-hip" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-102-hip">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Antes y después del paso</div>
+        <div class="field-guide">Registra:<br>• Cómo haces el paso hoy: pasos, tiempo y tu lista de cinco criterios de calidad<br>• Qué se automatiza, qué se aumenta y qué conservas; qué parte harás sin asistencia<br>• Tu predicción: «Creo que la IA lo hará bien o mal en… y tardaré…»<br>• Anota los minutos de «antes» en el número de abajo</div>
+        <div class="num-pair">
+          <div class="nf"><label for="f-102-n-x">Minutos que tomaba el paso antes del rediseño</label><input type="number" min="0" inputmode="numeric" id="f-102-n-x" data-save="f-102-n-x" placeholder="0"></div>
+        </div>
+        <textarea id="f-102-e1" data-save="f-102-e1" rows="8" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-102-e1">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Registro de tres ejecuciones</div>
+        <div class="field-guide">Por cada ejecución: fecha, tiempo, calidad frente a tus cinco criterios, qué corregiste y si fue con o sin asistencia. Anota el promedio de minutos en el número de abajo.</div>
+        <div class="num-pair">
+          <div class="nf"><label for="f-102-n-y">Minutos promedio de tus tres ejecuciones</label><input type="number" min="0" inputmode="numeric" id="f-102-n-y" data-save="f-102-n-y" placeholder="0"></div>
+        </div>
+        <textarea id="f-102-e2" data-save="f-102-e2" rows="8" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-102-e2">0</span> caracteres</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">12</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 2</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Mapa de frontera con evidencia</div>
+        <div class="field-guide">Para esta tarea: dentro, fuera o no sé, y la ejecución que lo respalda. Una fila por cada parte de la tarea que probaste.</div>
+        
+        <textarea id="f-102-e3" data-save="f-102-e3" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-102-e3">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Predicción contra resultado, momento sentido y decisión</div>
+        <div class="field-guide">Registra:<br>• Qué predijiste y qué pasó<br>• En qué ejecución sentiste algo, qué sentiste y con qué intensidad<br>• Tu decisión (escalar, ajustar o descartar) y por qué</div>
+        
+        <textarea id="f-102-e4" data-save="f-102-e4" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-102-e4">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Cierre de la semana</div>
+        <div class="field-guide">Re-pondera las cuatro barreras con la evidencia de esta semana: 1 = casi nada, 5 = es la que más pesa en tu caso.</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Creencias</span><label class="sc"><input type="radio" name="w-creencias-102" value="1" data-radio-save="f-102-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-102" value="2" data-radio-save="f-102-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-102" value="3" data-radio-save="f-102-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-102" value="4" data-radio-save="f-102-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-102" value="5" data-radio-save="f-102-w-creencias"></label></div><div class="scale-row"><span class="nm">Capacidades del rol</span><label class="sc"><input type="radio" name="w-capacidades-102" value="1" data-radio-save="f-102-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-102" value="2" data-radio-save="f-102-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-102" value="3" data-radio-save="f-102-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-102" value="4" data-radio-save="f-102-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-102" value="5" data-radio-save="f-102-w-capacidades"></label></div><div class="scale-row"><span class="nm">Estilo del líder</span><label class="sc"><input type="radio" name="w-lider-102" value="1" data-radio-save="f-102-w-lider"></label><label class="sc"><input type="radio" name="w-lider-102" value="2" data-radio-save="f-102-w-lider"></label><label class="sc"><input type="radio" name="w-lider-102" value="3" data-radio-save="f-102-w-lider"></label><label class="sc"><input type="radio" name="w-lider-102" value="4" data-radio-save="f-102-w-lider"></label><label class="sc"><input type="radio" name="w-lider-102" value="5" data-radio-save="f-102-w-lider"></label></div><div class="scale-row"><span class="nm">Cultura vigente</span><label class="sc"><input type="radio" name="w-cultura-102" value="1" data-radio-save="f-102-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-102" value="2" data-radio-save="f-102-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-102" value="3" data-radio-save="f-102-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-102" value="4" data-radio-save="f-102-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-102" value="5" data-radio-save="f-102-w-cultura"></label></div></div>
+        <div class="fill-lbl" style="margin-top:6px">Tu decisión sobre la palanca de capacidades</div>
+        <div class="dec-opts">
+          <label class="dec-opt"><input type="radio" name="dec-102" value="escalar" data-radio-save="f-102-dec">Escalar</label>
+          <label class="dec-opt"><input type="radio" name="dec-102" value="ajustar" data-radio-save="f-102-dec">Ajustar</label>
+          <label class="dec-opt"><input type="radio" name="dec-102" value="descartar" data-radio-save="f-102-dec">Descartar</label>
+        </div>
+        <div class="fill-lbl">Intensidad de lo que sentiste en el momento diseñado (1 = casi nada, 5 = muy intensa)</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Lo que sentí</span><label class="sc"><input type="radio" name="int-102" value="1" data-radio-save="f-102-int"></label><label class="sc"><input type="radio" name="int-102" value="2" data-radio-save="f-102-int"></label><label class="sc"><input type="radio" name="int-102" value="3" data-radio-save="f-102-int"></label><label class="sc"><input type="radio" name="int-102" value="4" data-radio-save="f-102-int"></label><label class="sc"><input type="radio" name="int-102" value="5" data-radio-save="f-102-int"></label></div></div>
+      </div>
+      <div class="fill fill-obs">
+        <div class="fill-lbl">Observaciones para tu mentor</div>
+        <div class="field-guide">Comparte con tu mentor cualquier hallazgo, dificultad o pregunta que haya surgido durante este experimento y que no esté capturado en los campos anteriores.</div>
+        <textarea id="f-102-obs" data-save="f-102-obs" rows="4" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-102-obs">0</span> caracteres</div>
+      </div>
+      <div class="submit-sec">
+        <h3>Envío del Experimento 2</h3>
+        <p>Al enviarlo se habilita la retroalimentación individual de tu mentor. Guarda un hallazgo o error de la IA que hayas detectado: es insumo del Experimento 4.</p>
+        <div class="submit-actions">
+          <button class="btn-sub" onclick="openModal('102')" id="btn-102">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 10l7-7 7 7M10 3v14"/></svg>
+            Enviar Experimento 2
+          </button>
+          <button class="btn-print" onclick="printExp('102')">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="4" y="2" width="12" height="8" rx="1"/><rect x="3" y="10" width="14" height="8" rx="1"/><rect x="7" y="13" width="6" height="5" rx="0.5" fill="currentColor" stroke="none"/></svg>
+            Guardar copia en PDF
+          </button>
+        </div>
+        <div class="sub-ok" id="ok-102">✓ Experimento 2 enviado correctamente.</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">13</div><div class="rule"></div></div>
+</div>
+
+<div class="page" id="exp-103">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 3</span></div>
+    <div class="p-body">
+      <div class="exp-lbl">Experimento 3 · Semana 3</div>
+      <h1 class="sec-title">Entrego al líder una línea de acción y observo si se repite</h1>
+      <div class="exp-meta-row"><span class="chip chip-cic">Semana 3 · Repetición</span><span class="chip chip-bar">Lección 3 (Estilo del líder)</span><span class="chip chip-dic">DICO: componente 3</span><span class="chip chip-tmp">Dedicación: 4 horas en 5 días</span></div>
+      <div class="route"><div class="stp past"><b>Semana 1</b>Activación</div><div class="stp past"><b>Semana 2</b>Acción</div><div class="stp on"><b>Semana 3</b>Repetición</div><div class="stp "><b>Semana 4</b>Transformación</div></div>
+      <div class="note">
+        <div class="note-hd">Conexión con la fundamentación</div>
+        <p><strong>Lección 3 · Lo que el líder hace y deja de hacer. Exigencia: liderar protegiendo el juicio humano.</strong></p>
+        <p><strong>3.1</strong> Operar la adopción y conducirla son trabajos distintos: el líder conduce y Cultura y Cambio le diseña el sistema.</p><p><strong>3.2</strong> El líder protege el juicio humano cuando declara su uso de la IA, calibra la confianza y hace explícitas las reglas.</p><p><strong>3.3</strong> Lo que el líder de mi caso hace o deja de hacer se puede observar, y yo le entrego la línea de acción.</p>
+      </div>
+      <p><em>Diagnosticar el estilo del líder por conductas que se pueden observar, no por rasgos de personalidad; entregarle una línea de acción mínima <em>en lugar de ejecutarla tú</em>; y observar si ocurre más de una vez. La adopción la mueve lo que el equipo ve hacer al líder. Tu trabajo es diseñar ese sistema, no operarlo.</em></p>
+      <p><strong>Objetivo de aprendizaje:</strong> Al terminar la semana podrás: nombrar tres conductas observables del líder de tu caso respecto del uso de la IA; elegir la línea de acción más pequeña que podría cambiar el cálculo de su equipo; entregarla sin ejecutarla por él o ella; y registrar, en tres ocasiones, si ocurrió y cómo reaccionó el equipo.</p>
+      <p><strong>Contexto de aplicación:</strong> El líder de tu caso y sus rituales de gestión: reunión semanal o diaria, uno a uno, canal del equipo. Necesitas al menos dos ocasiones observables en los cinco días. Si el ritual de tu líder es semanal, cuenta también sus mensajes en el canal del equipo.</p>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">14</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 3</span></div>
+    <div class="p-body">
+      <div class="report-id-block">
+        <div class="rid-head"><span class="rid-badge">Experimento 3</span><span class="rid-title">Identificación del experimento</span></div>
+        <div class="rid-fields"><div class="rid-field"><label>Caso</label><input type="text" id="f-103-rid-caso" data-save="f-103-rid-caso" placeholder="Nombre corto de tu caso"></div><div class="rid-field"><label>Fecha de inicio</label><input type="date" id="f-103-rid-fecha" data-save="f-103-rid-fecha" placeholder=""></div><div class="rid-field wide"><label>Rol del líder y rituales</label><input type="text" id="f-103-rid-lider" data-save="f-103-rid-lider" placeholder="Ej. director de área; reunión semanal y canal del equipo (sin nombres)"></div><div class="rid-field wide"><label>Línea de acción candidata</label><input type="text" id="f-103-rid-accion" data-save="f-103-rid-accion" placeholder="La más pequeña que podría cambiar el cálculo de su equipo"></div><div class="rid-field"><label>Participante</label><input type="text" id="f-103-rid-part" data-save="f-103-rid-part" placeholder="Se sincroniza desde portada"></div></div>
+      </div>
+      <div class="ip-guard"><span class="ip-guard-icon">🔒</span><span><strong>Límites del experimento.</strong> El líder sabe que es un experimento y lo acepta: no actúas a sus espaldas. No ejecutas la acción por él ni hablas en su nombre. No registras nada que lo exponga ante terceros. Empieza por una conducta de bajo riesgo: usar IA a la vista tiene un costo reputacional real (Reif, Larrick y Soll, 2025) y no se lo pides a nadie sin conversarlo. No es una evaluación del líder.</span></div>
+      <p style="font-weight:700;font-size:14px;color:var(--carbon);margin-bottom:12px;">Paso a paso · cinco días, 240 minutos</p>
+      <ul class="step-list"><li><span><strong>Día 1 · 60 minutos. Diagnostica por conductas y elige la línea de acción.</strong> Registra qué hace y qué deja de hacer el líder en sus rituales respecto del uso de la IA: ¿modela su uso?, ¿protege tiempo para aprender?, ¿reconoce avances?, ¿qué pasa con quien reporta un error? Usa lo que viste, no lo que supones. Revisa la creencia que más frena, que obtuviste en el Experimento 1: ¿qué línea de acción le sirve a ese equipo? Elige la más pequeña. Por ejemplo: abrir su reunión semanal mostrando un uso propio de la IA y cómo lo verificó. Escribe tu hipótesis.</span></li><li><span><strong>Día 2 · 45 minutos. Prepara el kit y conversa con el líder.</strong> Redacta un kit de una página: qué se pide, cuándo, con qué frase de apertura y quién registra. Conversa 20 minutos con el líder. Acuerden cuándo y cuántas ocasiones.</span></li><li><span><strong>Día 3 · 45 minutos. Observación 1.</strong> Registra: ¿ocurrió?, ¿cómo?, ¿cómo reaccionó el equipo?</span></li><li><span><strong>Día 4 · 45 minutos. Observación 2.</strong> Si no ocurrió, ajusta la logística (el calendario, el recordatorio, la frase de apertura), pero no la ejecutes tú.</span></li><li><span><strong>Día 5 · 45 minutos. Observación 3, siente y decide.</strong> Cuenta cuántas personas del equipo compartieron un uso propio durante la semana. Registra el momento sentido. Decide: escalar, ajustar o descartar. Re-pondera las cuatro barreras. Envía.</span></li></ul>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">15</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 3</span></div>
+    <div class="p-body">
+<div class="hyp"><div class="hyp-hd">Tu hipótesis · cinco partes</div><p>Escríbela el Día 1, con las cinco partes: conducta meta, cambio que introduces, cómo lo mides, criterio de éxito y decisión.</p><div class="hyp-ex"><em>Ejemplo ilustrativo, no es un dato.</em> "Si entrego al líder del área una línea de acción de una página para declarar un uso propio de la IA al abrir su reunión, entonces en al menos dos de tres ocasiones lo hará, y al menos tres personas del equipo compartirán un uso propio durante la semana (hoy: una). Escalar: llevar la línea de acción al ritual de otro nivel. Ajustar: cambiar el kit o la frase de apertura. Descartar: revisar si la barrera que pesa en mi caso es otra."</div></div><div class="felt"><div class="felt-hd">El momento de beneficio sentido</div><p class="">La repetición es el diseño de este experimento: lo que importa no es que el líder lo haga una vez, sino que lo haga de nuevo. El momento ocurre cuando ves al líder hacerlo y observas la reacción del equipo. Puedes sentir alivio, ligereza o orgullo de que el sistema que diseñaste funcione sin ti en el centro. También puedes sentir impaciencia o incomodidad si no ocurre: regístralo. Compara cómo se sintió la primera ocasión con la tercera: la hipótesis de diseño es que con la repetición la conducta se vuelve más natural, tanto para el líder como para el equipo.</p><p class=""><strong>Registra:</strong> en qué ocasión ocurrió, qué sentiste, con qué intensidad (1 a 5), y cómo cambió esa sensación entre la primera y la última ocasión.</p><p class="sust"><em>Sustento del diseño.</em> Reif, Larrick y Soll (2025) encontraron, en cuatro experimentos preregistrados con 4.439 participantes, que quienes usan IA en el trabajo anticipan y reciben una evaluación menos favorable; por eso se empieza por una conducta de bajo riesgo. Si la penalización se atenúa cuando el evaluador también usa IA, es una afirmación que no está confirmada en el artículo: tu experimento la pone a prueba. Que la repetición vuelva la conducta más natural es una hipótesis de diseño de DCA.</p></div><div class="metric-pair"><div class="metric-card beh"><div class="metric-card-lbl">Métrica de comportamiento</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>Si entregaste la línea de acción sin ejecutarla tú, y en cuántas ocasiones la ejecutó el líder.</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Ocasiones en que ocurrió sobre ocasiones observadas.</dd></div><div class="metric-row"><dt>Línea base</dt><dd>Lo que el líder hacía antes, tal como lo registraste el Día 1.</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>El que fijaste en tu hipótesis.</dd></div><div class="metric-row"><dt>Marcador observable</dt><dd>Entregas, no ejecutas.</dd></div></dl></div><div class="metric-card eff"><div class="metric-card-lbl">Efecto en la conducta del caso</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>Personas del equipo que comparten un uso propio de la IA durante la semana.</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Conteo sobre lo que observaste en los rituales y el canal del equipo.</dd></div><div class="metric-row"><dt>Línea base</dt><dd>Cuántas personas lo hacían antes del experimento.</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>El que fijaste en tu hipótesis.</dd></div></dl></div></div><div class="ia-role"><span class="ia-role-icon">🤖</span><span><strong>Rol de la IA como andamiaje:</strong> Puedes usar IA para ensayar la conversación con el líder (le pides que te plantee objeciones) y para redactar el borrador del kit. No simules la respuesta del líder como si fuera un dato: su respuesta real la registras tú. No ingreses información que identifique al líder o a su equipo.</span></div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">16</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 3</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Tu hipótesis (cinco partes)</div>
+        <div class="field-guide">Escríbela el Día 1, antes de conversar con el líder:<br>1. Conducta meta<br>2. Cambio que introduces: la línea de acción que le entregas (sin ejecutarla tú)<br>3. Cómo lo mides: ocasiones en que el líder la ejecuta sobre ocasiones observadas, y personas del equipo que comparten un uso propio<br>4. Criterio de éxito, definido antes<br>5. Decisión: escalar, ajustar o descartar</div>
+        
+        <textarea id="f-103-hip" data-save="f-103-hip" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-103-hip">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Diagnóstico por conductas del líder</div>
+        <div class="field-guide">Con lo que observaste, no con lo que supones:<br>• ¿Modela su uso de la IA?<br>• ¿Protege tiempo para aprender?<br>• ¿Reconoce avances?<br>• ¿Qué pasa con quien reporta un error?<br>Anota lo que viste y en qué ritual.</div>
+        
+        <textarea id="f-103-e1" data-save="f-103-e1" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-103-e1">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Línea de acción y kit de una página</div>
+        <div class="field-guide">La línea de acción más pequeña y su kit: qué se pide, cuándo, con qué frase de apertura y quién registra. Incluye lo que acordaste con el líder y cuántas ocasiones.</div>
+        
+        <textarea id="f-103-e2" data-save="f-103-e2" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-103-e2">0</span> caracteres</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">17</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 3</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Registro de observaciones</div>
+        <div class="field-guide">Por cada ocasión (mínimo dos): ¿ocurrió?, ¿cómo?, ¿cómo reaccionó el equipo?, evidencia. Si no ocurrió, qué ajustaste de la logística (sin ejecutarla tú). Anota en los números de abajo las personas del equipo que compartían un uso propio antes y las que lo hicieron esta semana.</div>
+        <div class="num-pair">
+          <div class="nf"><label for="f-103-n-x">Personas del equipo que compartían un uso propio de la IA antes</label><input type="number" min="0" inputmode="numeric" id="f-103-n-x" data-save="f-103-n-x" placeholder="0"></div>
+          <div class="nf"><label for="f-103-n-y">Personas que compartieron un uso propio durante la semana</label><input type="number" min="0" inputmode="numeric" id="f-103-n-y" data-save="f-103-n-y" placeholder="0"></div>
+        </div>
+        <textarea id="f-103-e3" data-save="f-103-e3" rows="8" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-103-e3">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Hipótesis contra resultado, momento sentido y decisión</div>
+        <div class="field-guide">Registra:<br>• Qué esperabas y qué ocurrió<br>• En qué ocasión sentiste algo, qué y con qué intensidad, y cómo cambió esa sensación entre la primera ocasión y la última<br>• Tu decisión (escalar, ajustar o descartar) y por qué</div>
+        
+        <textarea id="f-103-e4" data-save="f-103-e4" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-103-e4">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Cierre de la semana</div>
+        <div class="field-guide">Re-pondera las cuatro barreras con la evidencia de esta semana: 1 = casi nada, 5 = es la que más pesa en tu caso.</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Creencias</span><label class="sc"><input type="radio" name="w-creencias-103" value="1" data-radio-save="f-103-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-103" value="2" data-radio-save="f-103-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-103" value="3" data-radio-save="f-103-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-103" value="4" data-radio-save="f-103-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-103" value="5" data-radio-save="f-103-w-creencias"></label></div><div class="scale-row"><span class="nm">Capacidades del rol</span><label class="sc"><input type="radio" name="w-capacidades-103" value="1" data-radio-save="f-103-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-103" value="2" data-radio-save="f-103-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-103" value="3" data-radio-save="f-103-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-103" value="4" data-radio-save="f-103-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-103" value="5" data-radio-save="f-103-w-capacidades"></label></div><div class="scale-row"><span class="nm">Estilo del líder</span><label class="sc"><input type="radio" name="w-lider-103" value="1" data-radio-save="f-103-w-lider"></label><label class="sc"><input type="radio" name="w-lider-103" value="2" data-radio-save="f-103-w-lider"></label><label class="sc"><input type="radio" name="w-lider-103" value="3" data-radio-save="f-103-w-lider"></label><label class="sc"><input type="radio" name="w-lider-103" value="4" data-radio-save="f-103-w-lider"></label><label class="sc"><input type="radio" name="w-lider-103" value="5" data-radio-save="f-103-w-lider"></label></div><div class="scale-row"><span class="nm">Cultura vigente</span><label class="sc"><input type="radio" name="w-cultura-103" value="1" data-radio-save="f-103-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-103" value="2" data-radio-save="f-103-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-103" value="3" data-radio-save="f-103-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-103" value="4" data-radio-save="f-103-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-103" value="5" data-radio-save="f-103-w-cultura"></label></div></div>
+        <div class="fill-lbl" style="margin-top:6px">Tu decisión sobre la palanca del líder</div>
+        <div class="dec-opts">
+          <label class="dec-opt"><input type="radio" name="dec-103" value="escalar" data-radio-save="f-103-dec">Escalar</label>
+          <label class="dec-opt"><input type="radio" name="dec-103" value="ajustar" data-radio-save="f-103-dec">Ajustar</label>
+          <label class="dec-opt"><input type="radio" name="dec-103" value="descartar" data-radio-save="f-103-dec">Descartar</label>
+        </div>
+        <div class="fill-lbl">Intensidad de lo que sentiste en el momento diseñado (1 = casi nada, 5 = muy intensa)</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Lo que sentí</span><label class="sc"><input type="radio" name="int-103" value="1" data-radio-save="f-103-int"></label><label class="sc"><input type="radio" name="int-103" value="2" data-radio-save="f-103-int"></label><label class="sc"><input type="radio" name="int-103" value="3" data-radio-save="f-103-int"></label><label class="sc"><input type="radio" name="int-103" value="4" data-radio-save="f-103-int"></label><label class="sc"><input type="radio" name="int-103" value="5" data-radio-save="f-103-int"></label></div></div>
+      </div>
+      <div class="fill fill-obs">
+        <div class="fill-lbl">Observaciones para tu mentor</div>
+        <div class="field-guide">Comparte con tu mentor cualquier hallazgo, dificultad o pregunta que haya surgido durante este experimento y que no esté capturado en los campos anteriores.</div>
+        <textarea id="f-103-obs" data-save="f-103-obs" rows="4" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-103-obs">0</span> caracteres</div>
+      </div>
+      <div class="submit-sec">
+        <h3>Envío del Experimento 3</h3>
+        <p>Al enviarlo se habilita la retroalimentación individual de tu mentor. Lo que observaste en el equipo es insumo del Experimento 4.</p>
+        <div class="submit-actions">
+          <button class="btn-sub" onclick="openModal('103')" id="btn-103">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 10l7-7 7 7M10 3v14"/></svg>
+            Enviar Experimento 3
+          </button>
+          <button class="btn-print" onclick="printExp('103')">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="4" y="2" width="12" height="8" rx="1"/><rect x="3" y="10" width="14" height="8" rx="1"/><rect x="7" y="13" width="6" height="5" rx="0.5" fill="currentColor" stroke="none"/></svg>
+            Guardar copia en PDF
+          </button>
+        </div>
+        <div class="sub-ok" id="ok-103">✓ Experimento 3 enviado correctamente.</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">18</div><div class="rule"></div></div>
+</div>
+
+<div class="page" id="exp-104">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 4</span></div>
+    <div class="p-body">
+      <div class="exp-lbl">Experimento 4 · Semana 4</div>
+      <h1 class="sec-title">Mido el cambio en la conducta de mi caso y actualizo mi práctica con la evidencia</h1>
+      <div class="exp-meta-row"><span class="chip chip-cic">Semana 4 · Transformación</span><span class="chip chip-bar">Lección 4 (Cultura vigente)</span><span class="chip chip-dic">DICO: componentes 3 y 4</span><span class="chip chip-tmp">Dedicación: 4 horas en 5 días</span><span class="entregable-badge">Entregable obligatorio del sprint</span></div>
+      <div class="route"><div class="stp past"><b>Semana 1</b>Activación</div><div class="stp past"><b>Semana 2</b>Acción</div><div class="stp past"><b>Semana 3</b>Repetición</div><div class="stp on"><b>Semana 4</b>Transformación</div></div>
+      <div class="note">
+        <div class="note-hd">Conexión con la fundamentación</div>
+        <p><strong>Lección 4 · Lo que la cultura premia y tolera. Exigencia: medir valor y no licencias.</strong></p>
+        <p><strong>4.1</strong> La cultura premia lo que mide: antes se medía el uso, ahora el cambio es una hipótesis que se mide.</p><p><strong>4.2</strong> Medir valor exige una cultura que tolere el error y trate el cambio como hipótesis.</p><p><strong>4.3</strong> Salgo con una hipótesis que puedo defender y con claridad sobre qué cambia en mi práctica.</p>
+      </div>
+      <p><em>Medir el cambio sobre la conducta observable, por frecuencia <em>y</em> por calidad, y no por uso; leer un rasgo de la cultura de tu caso por lo que ocurre cuando alguien reporta un error; decidir con evidencia qué escalar, ajustar o descartar; y actualizar tu práctica. Si mides volumen, premias volumen. Rectificar es el resultado esperado, no un fracaso.</em></p>
+      <p><strong>Objetivo de aprendizaje:</strong> Al terminar la semana podrás: comparar la frecuencia de tu conducta meta con tu línea base y verificar su calidad; leer un rasgo cultural de tu caso (tolerancia al error, transparencia o aprendizaje) a partir de un acto de transparencia de bajo riesgo; decidir con evidencia qué escalar, ajustar o descartar de las tres palancas probadas; y redactar "Mi práctica actualizada" en una página, con la hipótesis de tu siguiente ciclo.</p>
+      <p><strong>Contexto de aplicación:</strong> Tu caso y toda la evidencia que produjiste en los Experimentos 1 a 3: la línea base, el mensaje por rol, el paso rediseñado, el mapa de frontera, la línea de acción entregada y las observaciones del equipo. Este experimento no repite nada: sintetiza y decide.</p>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">19</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 4</span></div>
+    <div class="p-body">
+      <div class="report-id-block">
+        <div class="rid-head"><span class="rid-badge">Experimento 4</span><span class="rid-title">Identificación del experimento</span></div>
+        <div class="rid-fields"><div class="rid-field"><label>Caso</label><input type="text" id="f-104-rid-caso" data-save="f-104-rid-caso" placeholder="Nombre corto de tu caso"></div><div class="rid-field"><label>Fecha de inicio</label><input type="date" id="f-104-rid-fecha" data-save="f-104-rid-fecha" placeholder=""></div><div class="rid-field wide"><label>Tu conducta meta (redacción final)</label><input type="text" id="f-104-rid-meta" data-save="f-104-rid-meta" placeholder="Una frase que otra persona podría ver ocurrir"></div><div class="rid-field"><label>Barrera que más pesaba en tu tarjeta</label><input type="text" id="f-104-rid-foco0" data-save="f-104-rid-foco0" placeholder=""></div><div class="rid-field"><label>Barrera que más pesa ahora</label><input type="text" id="f-104-rid-foco1" data-save="f-104-rid-foco1" placeholder="Según tu evidencia de las tres semanas"></div><div class="rid-field"><label>Canal del acto de transparencia</label><input type="text" id="f-104-rid-canal" data-save="f-104-rid-canal" placeholder="Par, líder o equipo"></div><div class="rid-field"><label>Participante</label><input type="text" id="f-104-rid-part" data-save="f-104-rid-part" placeholder="Se sincroniza desde portada"></div></div>
+      </div>
+      <div class="ip-guard"><span class="ip-guard-icon">🔒</span><span><strong>Límites del experimento.</strong> El acto de transparencia es voluntario, con el consentimiento de quien corresponda y en el canal de menor riesgo que elijas. Compartes un error o un aprendizaje tuyo, nunca el error de otra persona, y no atribuyes errores a nadie. No expongas datos confidenciales. No es una evaluación de desempeño de nadie. La IA ayuda a sintetizar; las decisiones y el texto final son tuyos.</span></div>
+      <p style="font-weight:700;font-size:14px;color:var(--carbon);margin-bottom:12px;">Paso a paso · cinco días, 240 minutos</p>
+      <ul class="step-list"><li><span><strong>Día 1 · 45 minutos. Mide frecuencia y calidad.</strong> Vuelve a contar tu conducta meta con el mismo método de la línea base del Experimento 1 ("ocurrió X de Y oportunidades"). Aplica un control de calidad: ¿está bien hecha? ¿Quién es el dueño humano de esa calidad? Compara con tu línea base. Si tu conducta casi no tuvo oportunidades, cuéntalas y explica por qué.</span></li><li><span><strong>Día 2 · 45 minutos. Acto de transparencia.</strong> Comparte, en el canal que elegiste, un error de la IA que detectaste (por ejemplo, el del Experimento 2) o un aprendizaje que no salió como esperabas. Observa y registra qué ocurre: ¿se tolera?, ¿alguien hace una pregunta de verificación?, ¿alguien comparte algo propio? Lee, con ese hecho, un rasgo de la cultura de tu caso.</span></li><li><span><strong>Día 3 · 45 minutos. Decide por palanca.</strong> Arma tu matriz de decisión: creencias (Experimento 1), capacidades (Experimento 2), líder (Experimento 3) y cultura (este experimento). Para cada palanca decide con evidencia: escalar, ajustar o descartar. Re-pondera las cuatro barreras de 1 a 5 y nombra cuál pesó más. Compara con el peso de tu tarjeta de caso: si cambió, documenta con qué evidencia.</span></li><li><span><strong>Día 4 · 60 minutos. Redacta "Mi práctica actualizada".</strong> Una página. Qué conservas, qué cambias y qué dejas de hacer en tu práctica, con la evidencia de cada decisión y en términos de las exigencias de la Era IA: comunicar con honestidad y por rol, rediseñar tu práctica y aprender en el flujo diario, liderar protegiendo el juicio humano, y medir valor y no licencias. Cierra con la hipótesis de tu siguiente ciclo, con criterio de éxito y decisión.</span></li><li><span><strong>Día 5 · 45 minutos. Sustenta, siente y envía.</strong> Presenta tu página en cinco minutos a un par o a tu mentor y responde sus objeciones con evidencia registrada. Registra el momento sentido. Envía.</span></li></ul>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">20</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 4</span></div>
+    <div class="p-body">
+<div class="hyp"><div class="hyp-hd">Tu hipótesis · cinco partes</div><p>Esta semana pones a prueba la cultura de tu caso, con las cinco partes de siempre.</p><div class="hyp-ex"><em>Ejemplo ilustrativo, no es un dato.</em> "Si comparto en el canal del equipo un error de la IA que detecté y cómo lo verifiqué, entonces en dos días al menos una persona responderá con una pregunta de verificación o compartirá su propio error (hoy: ninguna). Escalar: repetirlo en otro canal. Ajustar: cambiar el canal o la forma de contarlo. Descartar: volver a un canal más seguro y revisar cómo se reciben los errores en mi caso."</div></div><div class="felt"><div class="felt-hd">El momento de beneficio sentido</div><p class="">El momento ocurre el Día 5, cuando ves tu tablero de evidencia completo: tu línea base de la semana 1 y tu medición de hoy, lo que escuchaste, lo que rediseñaste, lo que entregaste, lo que se repitió y lo que decidiste. La experiencia que se diseñó es la de un cierre con logro propio, atribuible a tu esfuerzo, no a un anuncio de otro. También puedes sentir inquietud al ver lo que no funcionó, o la satisfacción de decidir con evidencia en lugar de con intuición. Regístralo todo.</p><p class=""><strong>Registra:</strong> qué sentiste al ver el tablero, con qué intensidad (1 a 5), y completa la frase "Lo que cambió en mi práctica es…".</p><p class="sust"><em>Sustento del diseño.</em> Las victorias deben ser visibles y atribuibles al esfuerzo propio (Cap. 4.5 del ensayo base; Schultz et al., 1997). La medición por volumen se corrompe y la percepción de mejora puede ir en dirección contraria al resultado: Becker et al. (2025), con 16 desarrolladores y 246 tareas, encontraron que esperaban ir 24% más rápido, tardaron 19% más y creían haber ido 20% más rápido (muestra pequeña y herramientas de comienzos de 2025). Edmondson (1999) asocia la seguridad psicológica con el aprendizaje de los equipos; Snowden y Boone (2007) proponen experimentos seguros de fallar en dominios complejos.</p></div><div class="metric-pair"><div class="metric-card beh"><div class="metric-card-lbl">Métrica de comportamiento</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>Proporción de tus decisiones por palanca sustentadas en evidencia registrada, y no en memoria u opinión.</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Conteo sobre tu matriz de decisión.</dd></div><div class="metric-row"><dt>Línea base</dt><dd>Tu forma habitual de decidir qué escalar, sin evidencia sistemática.</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>Cuatro de cuatro decisiones respaldadas por un registro; frecuencia y calidad medidas por separado; un acto de transparencia registrado; "Mi práctica actualizada" con lo que conservas, lo que cambias y lo que dejas.</dd></div><div class="metric-row"><dt>Marcador observable</dt><dd>Tus decisiones citan un registro (E1 a E3 de los experimentos anteriores), no una impresión.</dd></div></dl></div><div class="metric-card eff"><div class="metric-card-lbl">Efecto en la conducta del caso</div><dl class="metric-rows"><div class="metric-row"><dt>Qué se mide</dt><dd>El cambio entre tu línea base y la medición de hoy en la frecuencia y la calidad de tu conducta meta, y la señal cultural observada (tolerancia al error, transparencia, aprendizaje).</dd></div><div class="metric-row"><dt>Cómo se mide</dt><dd>Comparación del Día 1 de este experimento con el Día 1 del Experimento 1; registro del acto de transparencia.</dd></div><div class="metric-row"><dt>Criterio de éxito</dt><dd>El que fijaste en tu hipótesis; si el cambio es nulo o negativo, es un resultado válido y exige una decisión.</dd></div></dl></div></div><div class="ia-role"><span class="ia-role-icon">🤖</span><span><strong>Rol de la IA como andamiaje:</strong> Puedes usar IA para sintetizar tus registros, contraargumentar tus decisiones ("¿qué evidencia contradice esta?") y preparar las objeciones que te harán. No inventes cifras ni dejes que la IA redacte tu decisión: la matriz y la página son tuyas. No ingreses información confidencial ni que identifique a personas.</span></div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">21</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 4</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Tu hipótesis (cinco partes)</div>
+        <div class="field-guide">Escríbela el Día 1, antes del acto de transparencia:<br>1. Conducta meta<br>2. Cambio que introduces: compartes un error de la IA que detectaste, en el canal de menor riesgo<br>3. Cómo lo mides: qué ocurre en los dos días siguientes (¿pregunta de verificación?, ¿alguien comparte algo propio?)<br>4. Criterio de éxito, definido antes<br>5. Decisión: escalar, ajustar o descartar</div>
+        
+        <textarea id="f-104-hip" data-save="f-104-hip" rows="6" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-104-hip">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Tablero de medición</div>
+        <div class="field-guide">Tu línea base (Experimento 1) y tu medición de hoy:<br>• Frecuencia: X de Y oportunidades (anótalo en los números de abajo)<br>• Calidad: ¿está bien hecha? ¿Quién es el dueño humano de esa calidad?<br>Si casi no hubo oportunidades, cuéntalas y explica por qué.</div>
+        <div class="num-pair">
+          <div class="nf"><label for="f-104-n-x">Ocurrencias de tu conducta meta hoy</label><input type="number" min="0" inputmode="numeric" id="f-104-n-x" data-save="f-104-n-x" placeholder="0"></div>
+          <div class="nf"><label for="f-104-n-y">Oportunidades en que pudo ocurrir hoy</label><input type="number" min="0" inputmode="numeric" id="f-104-n-y" data-save="f-104-n-y" placeholder="0"></div>
+        </div>
+        <textarea id="f-104-e1" data-save="f-104-e1" rows="7" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-104-e1">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Acto de transparencia y lectura del rasgo cultural</div>
+        <div class="field-guide">Qué compartiste, en qué canal y qué ocurrió: ¿se toleró?, ¿alguien hizo una pregunta de verificación?, ¿alguien compartió algo propio? ¿Qué rasgo de la cultura de tu caso lees con ese hecho: tolerancia al error, transparencia u orientación al aprendizaje?</div>
+        
+        <textarea id="f-104-e2" data-save="f-104-e2" rows="7" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-104-e2">0</span> caracteres</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">22</div><div class="rule"></div></div>
+</div>
+
+<div class="page">
+  <div class="run-header">Sprint Roadmap &mdash; ADN IA Cultura y Cambio &middot; Experimentos en el flujo diario</div>
+  <div class="p-layout">
+    <div class="s-tab"><span class="lbl">Sem. 4</span></div>
+    <div class="p-body">
+      <div class="fill">
+        <div class="fill-lbl">Matriz de decisión por palanca</div>
+        <div class="field-guide">Una fila por palanca: creencias (Experimento 1), capacidades (2), líder (3) y cultura (4). Para cada una: la evidencia registrada, la decisión (escalar, ajustar o descartar) y por qué. Rectificar es un resultado esperado.</div>
+        
+        <textarea id="f-104-e3" data-save="f-104-e3" rows="9" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-104-e3">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Mi práctica actualizada — ENTREGABLE OBLIGATORIO</div>
+        <div class="field-guide">Una página:<br>• Qué conservas, qué cambias y qué dejas de hacer en tu práctica, con la evidencia de cada decisión<br>• En términos de las cuatro exigencias: comunicar con honestidad y por rol; rediseñar tu práctica y aprender en el flujo diario; liderar protegiendo el juicio humano; medir valor y no licencias<br>• La hipótesis de tu siguiente ciclo, con criterio de éxito y decisión<br>• El momento sentido y la frase «Lo que cambió en mi práctica es…»</div>
+        
+        <textarea id="f-104-e4" data-save="f-104-e4" rows="12" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-104-e4">0</span> caracteres</div>
+      </div>
+      <div class="fill">
+        <div class="fill-lbl">Cierre de la semana</div>
+        <div class="field-guide">Re-pondera las cuatro barreras con la evidencia de esta semana: 1 = casi nada, 5 = es la que más pesa en tu caso.</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Creencias</span><label class="sc"><input type="radio" name="w-creencias-104" value="1" data-radio-save="f-104-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-104" value="2" data-radio-save="f-104-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-104" value="3" data-radio-save="f-104-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-104" value="4" data-radio-save="f-104-w-creencias"></label><label class="sc"><input type="radio" name="w-creencias-104" value="5" data-radio-save="f-104-w-creencias"></label></div><div class="scale-row"><span class="nm">Capacidades del rol</span><label class="sc"><input type="radio" name="w-capacidades-104" value="1" data-radio-save="f-104-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-104" value="2" data-radio-save="f-104-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-104" value="3" data-radio-save="f-104-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-104" value="4" data-radio-save="f-104-w-capacidades"></label><label class="sc"><input type="radio" name="w-capacidades-104" value="5" data-radio-save="f-104-w-capacidades"></label></div><div class="scale-row"><span class="nm">Estilo del líder</span><label class="sc"><input type="radio" name="w-lider-104" value="1" data-radio-save="f-104-w-lider"></label><label class="sc"><input type="radio" name="w-lider-104" value="2" data-radio-save="f-104-w-lider"></label><label class="sc"><input type="radio" name="w-lider-104" value="3" data-radio-save="f-104-w-lider"></label><label class="sc"><input type="radio" name="w-lider-104" value="4" data-radio-save="f-104-w-lider"></label><label class="sc"><input type="radio" name="w-lider-104" value="5" data-radio-save="f-104-w-lider"></label></div><div class="scale-row"><span class="nm">Cultura vigente</span><label class="sc"><input type="radio" name="w-cultura-104" value="1" data-radio-save="f-104-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-104" value="2" data-radio-save="f-104-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-104" value="3" data-radio-save="f-104-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-104" value="4" data-radio-save="f-104-w-cultura"></label><label class="sc"><input type="radio" name="w-cultura-104" value="5" data-radio-save="f-104-w-cultura"></label></div></div>
+        <div class="fill-lbl" style="margin-top:6px">Tu decisión sobre la palanca de cultura</div>
+        <div class="dec-opts">
+          <label class="dec-opt"><input type="radio" name="dec-104" value="escalar" data-radio-save="f-104-dec">Escalar</label>
+          <label class="dec-opt"><input type="radio" name="dec-104" value="ajustar" data-radio-save="f-104-dec">Ajustar</label>
+          <label class="dec-opt"><input type="radio" name="dec-104" value="descartar" data-radio-save="f-104-dec">Descartar</label>
+        </div>
+        <div class="fill-lbl">Intensidad de lo que sentiste en el momento diseñado (1 = casi nada, 5 = muy intensa)</div>
+        <div class="scale-box"><div class="scale-row hd-row"><span class="hd"></span><span class="hd">1</span><span class="hd">2</span><span class="hd">3</span><span class="hd">4</span><span class="hd">5</span></div><div class="scale-row"><span class="nm">Lo que sentí</span><label class="sc"><input type="radio" name="int-104" value="1" data-radio-save="f-104-int"></label><label class="sc"><input type="radio" name="int-104" value="2" data-radio-save="f-104-int"></label><label class="sc"><input type="radio" name="int-104" value="3" data-radio-save="f-104-int"></label><label class="sc"><input type="radio" name="int-104" value="4" data-radio-save="f-104-int"></label><label class="sc"><input type="radio" name="int-104" value="5" data-radio-save="f-104-int"></label></div></div>
+      </div>
+      <div class="fill fill-obs">
+        <div class="fill-lbl">Observaciones para tu mentor</div>
+        <div class="field-guide">Comparte con tu mentor cualquier hallazgo, dificultad o pregunta que haya surgido durante este experimento y que no esté capturado en los campos anteriores.</div>
+        <textarea id="f-104-obs" data-save="f-104-obs" rows="4" placeholder="Escribe aquí tu respuesta…"></textarea>
+        <div class="char-ct"><span id="cc-104-obs">0</span> caracteres</div>
+      </div>
+      <div class="submit-sec">
+        <h3>Envío del Experimento 4 — Cierre del sprint</h3>
+        <p>«Mi práctica actualizada» y tu matriz de decisión son el entregable del sprint. Habilitan la retroalimentación de cierre de tu mentor y son el insumo de la valoración final (Momento 6), que se hace sobre comportamientos.</p>
+        <div class="submit-actions">
+          <button class="btn-sub" onclick="openModal('104')" id="btn-104">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 10l7-7 7 7M10 3v14"/></svg>
+            Enviar Experimento 4
+          </button>
+          <button class="btn-print" onclick="printExp('104')">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><rect x="4" y="2" width="12" height="8" rx="1"/><rect x="3" y="10" width="14" height="8" rx="1"/><rect x="7" y="13" width="6" height="5" rx="0.5" fill="currentColor" stroke="none"/></svg>
+            Guardar copia en PDF
+          </button>
+        </div>
+        <div class="sub-ok" id="ok-104">✓ Experimento 4 enviado correctamente.</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-footer"><div class="rule"></div><div class="pnum">23</div><div class="rule"></div></div>
+</div>
+
+<section class="back-cover">
+  <div class="cover-visual"><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs><pattern id="dotsb" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.2" fill="rgba(30,42,56,0.28)"/></pattern></defs>
+      <rect width="720" height="300" fill="#2e8b76"/><rect width="720" height="300" fill="url(#dotsb)"/>
+      <path d="M 60 262 Q 360 30 660 262" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1.5"/>
+      <line x1="60" y1="262" x2="660" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+      <line x1="144" y1="206" x2="144" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/><line x1="288" y1="153" x2="288" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/><line x1="432" y1="153" x2="432" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/><line x1="576" y1="206" x2="576" y2="262" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+      <circle cx="144" cy="206" r="26" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="2"/><circle cx="144" cy="206" r="14" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="1.5"/><circle cx="144" cy="206" r="5" fill="rgba(255,255,255,0.88)"/><text x="144" y="170" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 1</text><text x="144" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">ACTIVACIÓN</text><circle cx="288" cy="153" r="26" fill="none" stroke="rgba(210,208,200,0.65)" stroke-width="2"/><circle cx="288" cy="153" r="14" fill="none" stroke="rgba(210,208,200,0.65)" stroke-width="1.5"/><circle cx="288" cy="153" r="5" fill="rgba(210,208,200,0.92)"/><text x="288" y="117" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 2</text><text x="288" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">ACCIÓN</text><circle cx="432" cy="153" r="26" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="2"/><circle cx="432" cy="153" r="14" fill="none" stroke="rgba(255,255,255,0.52)" stroke-width="1.5"/><circle cx="432" cy="153" r="5" fill="rgba(255,255,255,0.88)"/><text x="432" y="117" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 3</text><text x="432" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">REPETICIÓN</text><circle cx="576" cy="206" r="26" fill="none" stroke="rgba(30,42,56,0.78)" stroke-width="2"/><circle cx="576" cy="206" r="14" fill="none" stroke="rgba(30,42,56,0.78)" stroke-width="1.5"/><circle cx="576" cy="206" r="5" fill="rgba(30,42,56,0.88)"/><text x="576" y="170" fill="rgba(255,255,255,0.85)" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="2">SEMANA 4</text><text x="576" y="282" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1.5">TRANSFORMACIÓN</text>
+      <text x="360" y="298" fill="rgba(255,255,255,0.5)" font-family="sans-serif" font-size="7" font-weight="700" text-anchor="middle" letter-spacing="3">PUENTE DE EVOLUCIÓN</text>
+    </svg></div>
+  <div class="bc-band">
+    <div class="bc-sprint">Sprint Roadmap · ADN IA Cultura y Cambio</div>
+    <div class="bc-theme">Experimentos en el flujo diario</div>
+  </div>
+  <div class="bc-spacer"><img src="data:image/png;base64,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AKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAywgEAAAAAAKiMcAAAAAAAACojHAAAAAAAgMoIBwAAAAAAoDLCAQAAAAAAqIxwAAAAAAAAKiMcAAAAAACAyggHAAAAAACgMsIBAAAAAACojHAAAAAAAAAqIxwAAAAAAIDKCAcAAAAAAKAy/w9oXWGNnNg9+gAAAABJRU5ErkJggg==" alt="Digital Change Advisors" style="max-width:260px;height:auto"></div>
+  <div class="bc-foot"><div class="bc-foot-t">Digital Change Advisors · MATCH</div></div>
+</section>
+
+</div><!-- /doc-wrap -->
+
+<!-- MODAL -->
+<div class="modal-ov" id="modal">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">Resumen del Experimento</div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="modal-alert" id="modal-alert"></div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-actions" id="modal-actions">
+      <button class="btn-m p" id="btn-send" onclick="submitExp()">✈ Enviar ahora a mi mentor</button>
+      <button class="btn-m s" onclick="printExp(currentExp)">⬇ Descargar PDF</button>
+      <button class="btn-m s" onclick="copyModal()">📋 Copiar resumen</button>
+      <button class="btn-m s" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// ══ AUTOSAVE ══════════════════════════════
+const SAVE_KEY = 'dca_adn_ia_cultura_cambio_v1';
+
+// ══ CONFIG DEL INSTRUMENTO ════════════════════════════════════════════
+// Único bloque que cambia entre sprints (junto con expNames y EXP_FIELDS).
+const INSTRUMENT = {
+  id: 'sprint-adn-ia-cultura-cambio',
+  sprintLabel: 'Sprint Roadmap · ADN IA Cultura y Cambio',
+  programa: 'Sprint ADN IA Cultura y Cambio',
+  marca: 'MATCH',
+  asunto: 'ADN IA',
+  correoRespaldo: 'ceo@digitalchangeadvisors.com',
+  endpoint: 'https://script.google.com/macros/s/AKfycbzdY4-i29glAQKNPKxllaVeR0ZD5daYbbKvZDzIBXjQ0r936Bh33EHGvBhO6fb7wlPWlg/exec'
+};
+let saveTimer;
+const saveDot = document.getElementById('saveDot');
+
+function getData() { try { return JSON.parse(localStorage.getItem(SAVE_KEY) || '{}'); } catch(e) { return {}; } }
+
+function saveField(key, val) {
+  const d = getData(); d[key] = val; localStorage.setItem(SAVE_KEY, JSON.stringify(d));
+}
+
+function loadAll() {
+  const d = getData();
+  // Text/date inputs and textareas
+  document.querySelectorAll('[data-save]').forEach(el => {
+    const k = el.dataset.save;
+    if (d[k] !== undefined) {
+      el.value = d[k];
+      if (el.tagName === 'TEXTAREA' && d[k]) el.classList.add('filled');
+    }
+  });
+  // Radio buttons
+  document.querySelectorAll('[data-radio-save]').forEach(radio => {
+    const k = radio.dataset.radioSave;
+    if (d[k] === radio.value) radio.checked = true;
+  });
+  // Sync participant fields from cover
+  syncParticipant();
+  updateProgress();
+}
+
+// Sync participant name from cover to all RID blocks
+function syncParticipant() {
+  const nombre = document.getElementById('sf-nombre')?.value || '';
+  ["101", "102", "103", "104"].forEach(n => {
+    const el = document.getElementById(`f-${n}-rid-part`);
+    if (el && !el.dataset.manually) el.value = nombre;
+  });
+}
+
+let saveTimer2;
+function autosave() {
+  saveDot.className = 'save-dot saving';
+  clearTimeout(saveTimer2);
+  saveTimer2 = setTimeout(() => {
+    saveDot.className = 'save-dot saved';
+    setTimeout(() => saveDot.className = 'save-dot', 2000);
+  }, 800);
+}
+
+document.querySelectorAll('[data-save]').forEach(el => {
+  el.addEventListener('input', () => {
+    saveField(el.dataset.save, el.value);
+    if (el.tagName === 'TEXTAREA') el.classList.toggle('filled', el.value.length > 0);
+    if (el.id === 'sf-nombre') syncParticipant();
+    autosave(); updateProgress(); updateCharCount(el);
+  });
+});
+document.querySelectorAll('[data-radio-save]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    saveField(radio.dataset.radioSave, radio.value); autosave(); updateProgress();
+  });
+});
+
+// ══ CHAR COUNTERS ══════════════════════════
+function updateCharCount(el) {
+  const id = el.id;
+  const ccEl = document.getElementById('cc-' + id.replace('f-',''));
+  if (ccEl) ccEl.textContent = el.value.length;
+}
+document.querySelectorAll('textarea').forEach(ta => ta.addEventListener('input', () => updateCharCount(ta)));
+
+// ══ PROGRESS ════════════════════════════════
+function updateProgress() {
+  const allInputs = document.querySelectorAll('textarea[data-save], input[data-save]:not([type="radio"])');
+  const allRadioGroups = ["p0-creencias-101", "p0-capacidades-101", "p0-lider-101", "p0-cultura-101", "w-creencias-101", "w-capacidades-101", "w-lider-101", "w-cultura-101", "dec-101", "int-101", "w-creencias-102", "w-capacidades-102", "w-lider-102", "w-cultura-102", "dec-102", "int-102", "w-creencias-103", "w-capacidades-103", "w-lider-103", "w-cultura-103", "dec-103", "int-103", "w-creencias-104", "w-capacidades-104", "w-lider-104", "w-cultura-104", "dec-104", "int-104"];
+  let total = allInputs.length + allRadioGroups.length;
+  let filled = 0;
+  allInputs.forEach(el => { if (el.value && el.value.trim()) filled++; });
+  allRadioGroups.forEach(grp => { if (document.querySelector(`input[name="${grp}"]:checked`)) filled++; });
+  const pct = Math.round((filled / total) * 100);
+  document.getElementById('pbFill').style.width = pct + '%';
+  document.getElementById('pbPct').textContent = pct + '%';
+}
+
+// ══ MODAL ════════════════════════════════════
+let currentExp = '', mailBody = '', mailSubject = '';
+
+const EXP_FIELDS = {
+  "101": [
+    {
+      "id": "f-101-rid-caso",
+      "label": "Caso"
+    },
+    {
+      "id": "f-101-rid-fecha",
+      "label": "Fecha de inicio del experimento"
+    },
+    {
+      "id": "f-101-rid-meta",
+      "label": "Conducta meta"
+    },
+    {
+      "id": "f-101-rid-roles",
+      "label": "Roles de las dos personas con las que conversarás"
+    },
+    {
+      "id": "f-101-p0-creencias",
+      "label": "Peso inicial · Creencias (1 a 5)",
+      "type": "radio",
+      "name": "p0-creencias-101"
+    },
+    {
+      "id": "f-101-p0-capacidades",
+      "label": "Peso inicial · Capacidades del rol (1 a 5)",
+      "type": "radio",
+      "name": "p0-capacidades-101"
+    },
+    {
+      "id": "f-101-p0-lider",
+      "label": "Peso inicial · Estilo del líder (1 a 5)",
+      "type": "radio",
+      "name": "p0-lider-101"
+    },
+    {
+      "id": "f-101-p0-cultura",
+      "label": "Peso inicial · Cultura vigente (1 a 5)",
+      "type": "radio",
+      "name": "p0-cultura-101"
+    },
+    {
+      "id": "f-101-hip",
+      "label": "Hipótesis (cinco partes)"
+    },
+    {
+      "id": "f-101-e1",
+      "label": "Punto de partida y predicción"
+    },
+    {
+      "id": "f-101-e2",
+      "label": "Registro de conversaciones"
+    },
+    {
+      "id": "f-101-e3",
+      "label": "Mensaje por rol"
+    },
+    {
+      "id": "f-101-e4",
+      "label": "Validación, momento sentido y decisión"
+    },
+    {
+      "id": "f-101-n-x",
+      "label": "Ocurrencias de tu conducta meta (línea base)"
+    },
+    {
+      "id": "f-101-n-y",
+      "label": "Oportunidades en que pudo ocurrir"
+    },
+    {
+      "id": "f-101-w-creencias",
+      "label": "Re-ponderación · Creencias (1 a 5)",
+      "type": "radio",
+      "name": "w-creencias-101"
+    },
+    {
+      "id": "f-101-w-capacidades",
+      "label": "Re-ponderación · Capacidades del rol (1 a 5)",
+      "type": "radio",
+      "name": "w-capacidades-101"
+    },
+    {
+      "id": "f-101-w-lider",
+      "label": "Re-ponderación · Estilo del líder (1 a 5)",
+      "type": "radio",
+      "name": "w-lider-101"
+    },
+    {
+      "id": "f-101-w-cultura",
+      "label": "Re-ponderación · Cultura vigente (1 a 5)",
+      "type": "radio",
+      "name": "w-cultura-101"
+    },
+    {
+      "id": "f-101-dec",
+      "label": "Decisión sobre la palanca de creencias",
+      "type": "radio",
+      "name": "dec-101"
+    },
+    {
+      "id": "f-101-int",
+      "label": "Intensidad de lo que sentí (1 a 5)",
+      "type": "radio",
+      "name": "int-101"
+    },
+    {
+      "id": "f-101-obs",
+      "label": "Observaciones para el mentor"
+    }
+  ],
+  "102": [
+    {
+      "id": "f-102-rid-caso",
+      "label": "Caso"
+    },
+    {
+      "id": "f-102-rid-fecha",
+      "label": "Fecha de inicio del experimento"
+    },
+    {
+      "id": "f-102-rid-tarea",
+      "label": "Tarea y paso que vas a rediseñar"
+    },
+    {
+      "id": "f-102-rid-herr",
+      "label": "Herramienta de IA que usarás (nombre y versión)"
+    },
+    {
+      "id": "f-102-hip",
+      "label": "Hipótesis (cinco partes)"
+    },
+    {
+      "id": "f-102-e1",
+      "label": "Antes y después del paso"
+    },
+    {
+      "id": "f-102-e2",
+      "label": "Registro de tres ejecuciones"
+    },
+    {
+      "id": "f-102-e3",
+      "label": "Mapa de frontera con evidencia"
+    },
+    {
+      "id": "f-102-e4",
+      "label": "Predicción contra resultado, momento sentido y decisión"
+    },
+    {
+      "id": "f-102-n-x",
+      "label": "Minutos que tomaba el paso antes del rediseño"
+    },
+    {
+      "id": "f-102-n-y",
+      "label": "Minutos promedio de tus tres ejecuciones"
+    },
+    {
+      "id": "f-102-w-creencias",
+      "label": "Re-ponderación · Creencias (1 a 5)",
+      "type": "radio",
+      "name": "w-creencias-102"
+    },
+    {
+      "id": "f-102-w-capacidades",
+      "label": "Re-ponderación · Capacidades del rol (1 a 5)",
+      "type": "radio",
+      "name": "w-capacidades-102"
+    },
+    {
+      "id": "f-102-w-lider",
+      "label": "Re-ponderación · Estilo del líder (1 a 5)",
+      "type": "radio",
+      "name": "w-lider-102"
+    },
+    {
+      "id": "f-102-w-cultura",
+      "label": "Re-ponderación · Cultura vigente (1 a 5)",
+      "type": "radio",
+      "name": "w-cultura-102"
+    },
+    {
+      "id": "f-102-dec",
+      "label": "Decisión sobre la palanca de capacidades",
+      "type": "radio",
+      "name": "dec-102"
+    },
+    {
+      "id": "f-102-int",
+      "label": "Intensidad de lo que sentí (1 a 5)",
+      "type": "radio",
+      "name": "int-102"
+    },
+    {
+      "id": "f-102-obs",
+      "label": "Observaciones para el mentor"
+    }
+  ],
+  "103": [
+    {
+      "id": "f-103-rid-caso",
+      "label": "Caso"
+    },
+    {
+      "id": "f-103-rid-fecha",
+      "label": "Fecha de inicio del experimento"
+    },
+    {
+      "id": "f-103-rid-lider",
+      "label": "Rol del líder y rituales en los que lo observarás"
+    },
+    {
+      "id": "f-103-rid-accion",
+      "label": "Línea de acción candidata"
+    },
+    {
+      "id": "f-103-hip",
+      "label": "Hipótesis (cinco partes)"
+    },
+    {
+      "id": "f-103-e1",
+      "label": "Diagnóstico por conductas del líder"
+    },
+    {
+      "id": "f-103-e2",
+      "label": "Línea de acción y kit de una página"
+    },
+    {
+      "id": "f-103-e3",
+      "label": "Registro de observaciones"
+    },
+    {
+      "id": "f-103-e4",
+      "label": "Hipótesis contra resultado, momento sentido y decisión"
+    },
+    {
+      "id": "f-103-n-x",
+      "label": "Personas del equipo que compartían un uso propio de la IA antes"
+    },
+    {
+      "id": "f-103-n-y",
+      "label": "Personas que compartieron un uso propio durante la semana"
+    },
+    {
+      "id": "f-103-w-creencias",
+      "label": "Re-ponderación · Creencias (1 a 5)",
+      "type": "radio",
+      "name": "w-creencias-103"
+    },
+    {
+      "id": "f-103-w-capacidades",
+      "label": "Re-ponderación · Capacidades del rol (1 a 5)",
+      "type": "radio",
+      "name": "w-capacidades-103"
+    },
+    {
+      "id": "f-103-w-lider",
+      "label": "Re-ponderación · Estilo del líder (1 a 5)",
+      "type": "radio",
+      "name": "w-lider-103"
+    },
+    {
+      "id": "f-103-w-cultura",
+      "label": "Re-ponderación · Cultura vigente (1 a 5)",
+      "type": "radio",
+      "name": "w-cultura-103"
+    },
+    {
+      "id": "f-103-dec",
+      "label": "Decisión sobre la palanca del líder",
+      "type": "radio",
+      "name": "dec-103"
+    },
+    {
+      "id": "f-103-int",
+      "label": "Intensidad de lo que sentí (1 a 5)",
+      "type": "radio",
+      "name": "int-103"
+    },
+    {
+      "id": "f-103-obs",
+      "label": "Observaciones para el mentor"
+    }
+  ],
+  "104": [
+    {
+      "id": "f-104-rid-caso",
+      "label": "Caso"
+    },
+    {
+      "id": "f-104-rid-fecha",
+      "label": "Fecha de inicio del experimento"
+    },
+    {
+      "id": "f-104-rid-meta",
+      "label": "Conducta meta, en su redacción final"
+    },
+    {
+      "id": "f-104-rid-foco0",
+      "label": "Barrera que más pesaba en tu tarjeta de caso"
+    },
+    {
+      "id": "f-104-rid-foco1",
+      "label": "Barrera que más pesa ahora, según tu evidencia"
+    },
+    {
+      "id": "f-104-rid-canal",
+      "label": "Canal del acto de transparencia"
+    },
+    {
+      "id": "f-104-hip",
+      "label": "Hipótesis (cinco partes)"
+    },
+    {
+      "id": "f-104-e1",
+      "label": "Tablero de medición"
+    },
+    {
+      "id": "f-104-e2",
+      "label": "Acto de transparencia y lectura del rasgo cultural"
+    },
+    {
+      "id": "f-104-e3",
+      "label": "Matriz de decisión por palanca"
+    },
+    {
+      "id": "f-104-e4",
+      "label": "Mi práctica actualizada — ENTREGABLE OBLIGATORIO"
+    },
+    {
+      "id": "f-104-n-x",
+      "label": "Ocurrencias de tu conducta meta hoy"
+    },
+    {
+      "id": "f-104-n-y",
+      "label": "Oportunidades en que pudo ocurrir hoy"
+    },
+    {
+      "id": "f-104-w-creencias",
+      "label": "Re-ponderación · Creencias (1 a 5)",
+      "type": "radio",
+      "name": "w-creencias-104"
+    },
+    {
+      "id": "f-104-w-capacidades",
+      "label": "Re-ponderación · Capacidades del rol (1 a 5)",
+      "type": "radio",
+      "name": "w-capacidades-104"
+    },
+    {
+      "id": "f-104-w-lider",
+      "label": "Re-ponderación · Estilo del líder (1 a 5)",
+      "type": "radio",
+      "name": "w-lider-104"
+    },
+    {
+      "id": "f-104-w-cultura",
+      "label": "Re-ponderación · Cultura vigente (1 a 5)",
+      "type": "radio",
+      "name": "w-cultura-104"
+    },
+    {
+      "id": "f-104-dec",
+      "label": "Decisión sobre la palanca de cultura",
+      "type": "radio",
+      "name": "dec-104"
+    },
+    {
+      "id": "f-104-int",
+      "label": "Intensidad de lo que sentí (1 a 5)",
+      "type": "radio",
+      "name": "int-104"
+    },
+    {
+      "id": "f-104-obs",
+      "label": "Observaciones para el mentor"
+    }
+  ]
+};
+
+const expNames = {
+  "101": "Experimento 1 · Semana 1 — Lo que frena la conducta se escucha antes de comunicarlo",
+  "102": "Experimento 2 · Semana 2 — Rediseño un paso de mi práctica y lo aprendo mientras lo hago",
+  "103": "Experimento 3 · Semana 3 — Entrego al líder una línea de acción y observo si se repite",
+  "104": "Experimento 4 · Semana 4 — Mido el cambio en la conducta de mi caso y actualizo mi práctica con la evidencia"
+};
+
+function getStudentInfo() {
+  return {
+    nombre:  document.getElementById('sf-nombre')?.value  || '(sin nombre)',
+    email:   (document.getElementById('sf-email')?.value  || '').trim(),
+    empresa: document.getElementById('sf-empresa')?.value || '(sin empresa)',
+    cohorte: document.getElementById('sf-cohorte')?.value || '(sin cohorte)'
+  };
+}
+
+function getRadioValue(name) {
+  const r = document.querySelector(`input[name="${name}"]:checked`);
+  return r ? r.value : '(no seleccionado)';
+}
+
+function openModal(exp) {
+  currentExp = exp;
+  const si = getStudentInfo();
+  const fields = EXP_FIELDS[exp] || [];
+
+  let summary = `════════════════════════════════════\n`;
+  summary += `${INSTRUMENT.sprintLabel.toUpperCase()}\n`;
+  summary += `${INSTRUMENT.programa} · Digital Change Advisors · DCA\n`;
+  summary += `════════════════════════════════════\n\n`;
+  summary += `IDENTIFICACIÓN\n`;
+  summary += `Programa: ${INSTRUMENT.programa}\n`;
+  summary += `Sprint: ${INSTRUMENT.sprintLabel}\n`;
+  summary += `Experimento: ${expNames[exp].split('—')[0].trim()}\n`;
+  summary += `Participante: ${si.nombre}\n`;
+  summary += `Correo: ${si.email || '(sin correo)'}\n`;
+  summary += `Cohorte: ${si.cohorte}\n`;
+  summary += `Organización del participante: ${si.empresa}\n`;
+  summary += `Fecha de envío: ${new Date().toLocaleDateString('es-CO', { year:'numeric', month:'long', day:'numeric' })}\n`;
+  summary += `\n── ${expNames[exp]} ──\n\n`;
+
+  fields.forEach(f => {
+    let val;
+    if (f.type === 'radio') {
+      val = getRadioValue(f.name);
+    } else {
+      const el = document.getElementById(f.id);
+      val = el ? el.value.trim() : '';
+    }
+    summary += `▸ ${f.label}:\n${val || '(sin respuesta)'}\n\n`;
+  });
+
+  summary += `════════════════════════════════════\n`;
+  summary += `${INSTRUMENT.marca}\n`;
+  summary += `Digital Change Advisors, LLC.`;
+
+  mailSubject = `[${INSTRUMENT.asunto}] ${expNames[exp].split('—')[0].trim()} — ${si.nombre} | ${si.cohorte}`;
+  mailBody = summary;
+
+  document.getElementById('modal-title').textContent = expNames[exp].split('—')[0].trim();
+  document.getElementById('modal-sub').textContent = `${si.nombre} · ${si.empresa} · ${si.cohorte}`;
+  document.getElementById('modal-body').textContent = summary;
+
+  limpiarAlerta();
+  const acciones = document.getElementById('modal-actions');
+  const btnSend  = document.getElementById('btn-send');
+  acciones.classList.remove('sent');
+  btnSend.disabled = false;
+  btnSend.textContent = '✈ Enviar ahora a mi mentor';
+
+  const dd = getData();
+  if (dd['sent_' + exp] && dd['recibo_' + exp]) {
+    alerta('Ya enviaste este experimento el ' +
+      new Date(dd['fecha_envio_' + exp]).toLocaleDateString('es-CO', { day:'numeric', month:'long', year:'numeric' }) +
+      ' · Recibo <b>' + dd['recibo_' + exp] + '</b>.<br>' +
+      'Si corregiste algo, puedes <b>volver a enviar</b>: tu mentor verá la versión más reciente.', 'info');
+    btnSend.textContent = '↻ Enviar versión corregida';
+  }
+
+  document.getElementById('modal').classList.add('open');
+}
+
+/* ══ GENERACIÓN DE PDF — CON TODO EL CONTENIDO (genérico) ══════════════ */
+function printExp(exp) {
+  const si = getStudentInfo();
+  const campos = (EXP_FIELDS[exp] || []).map(f => {
+    let value;
+    if (f.type === 'radio') {
+      const r = document.querySelector(`input[name="${f.name}"]:checked`);
+      value = r ? r.value : '';
+    } else {
+      const el = document.getElementById(f.id);
+      value = el ? el.value.trim() : '';
+    }
+    return { label: f.label, value: value };
+  });
+  const esc = s => String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const d = getData();
+  const recibo = d['recibo_' + exp] || null;
+  const fecha = new Date().toLocaleDateString('es-CO', { day:'numeric', month:'long', year:'numeric' });
+  const totalChars = campos.reduce((s,c) => s + String(c.value||'').length, 0);
+  const llenos = campos.filter(c => String(c.value||'').trim()).length;
+  const bloques = campos.map(c => `
+    <div class="campo">
+      <div class="campo-lbl">${esc(c.label)}<span class="chars">${String(c.value||'').length} caracteres</span></div>
+      <div class="campo-val">${String(c.value||'').trim()
+        ? esc(c.value).replace(/\n/g,'<br>')
+        : '<em style="color:#9ca3af">— sin contenido —</em>'}</div>
+    </div>`).join('');
+  const html = `<!doctype html><html><head><meta charset="utf-8">
+  <title>${esc(expNames[exp].split('—')[0].trim())} · ${esc(si.nombre)}</title>
+  <style>
+    @page { size: letter portrait; margin: 0.6in 0.65in; }
+    *{box-sizing:border-box}
+    body{font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;color:#1e2a38;font-size:10.5pt;line-height:1.55;margin:0}
+    .cab{background:#1e2a38;color:#fff;padding:18px 20px}
+    .cab-marca{font-size:8.5pt;letter-spacing:.14em;text-transform:uppercase;color:#a48111;font-weight:700}
+    .cab-tit{font-family:'Marcellus',Georgia,serif;font-size:19pt;margin:6px 0 2px}
+    .cab-sub{font-size:9.5pt;color:rgba(255,255,255,.72)}
+    .recibo{background:#2e8b76;color:#fff;padding:9px 20px;font-size:9.5pt;display:flex;justify-content:space-between}
+    .ident{background:#f3f3f3;padding:12px 20px;margin-bottom:16px;border-left:4px solid #a48111}
+    .ident table{width:100%;border-collapse:collapse}
+    .ident td{padding:2px 0;font-size:9.5pt;vertical-align:top}
+    .ident td.k{color:#6b7280;width:130px;text-transform:uppercase;font-size:8pt;letter-spacing:.06em;padding-top:4px}
+    .ident td.v{font-weight:600}
+    .wrap{padding:0 20px 20px}
+    .campo{margin-bottom:15px;page-break-inside:avoid}
+    .campo-lbl{font-size:8.5pt;text-transform:uppercase;letter-spacing:.07em;color:#2e8b76;font-weight:700;padding-bottom:4px;border-bottom:1.5px solid #2e8b76;margin-bottom:6px}
+    .chars{float:right;color:#6b7280;font-weight:400;text-transform:none;letter-spacing:0;font-size:7.5pt}
+    .campo-val{background:#fff;border:1px solid #dcdfe3;border-radius:4px;padding:9px 11px;font-size:10pt;white-space:pre-wrap;word-wrap:break-word}
+    .resumen{margin-top:18px;padding:10px 14px;background:#f3f3f3;border-radius:4px;font-size:8.5pt;color:#6b7280}
+    .aviso{margin-top:10px;padding:9px 14px;background:#f7e9e4;border-left:3px solid #c2593f;font-size:8.5pt;color:#1e2a38}
+    .pie{margin-top:16px;border-top:2px solid #a48111;padding-top:8px;font-size:7.5pt;color:#6b7280;text-align:center}
+  </style></head><body>
+  <div class="cab">
+    <div class="cab-marca">${esc(INSTRUMENT.programa)} · ${esc(INSTRUMENT.marca)}</div>
+    <div class="cab-tit">${esc(expNames[exp])}</div>
+    <div class="cab-sub">${esc(INSTRUMENT.sprintLabel)}</div>
+  </div>
+  <div class="recibo">
+    <span>${recibo ? 'Recibo <b>'+esc(recibo)+'</b>' : 'Copia de trabajo — aún no enviado'}</span>
+    <span>${fecha}</span>
+  </div>
+  <div class="wrap">
+    <div class="ident"><table>
+      <tr><td class="k">Participante</td><td class="v">${esc(si.nombre)}</td></tr>
+      <tr><td class="k">Correo</td><td class="v">${esc(si.email || '—')}</td></tr>
+      <tr><td class="k">Empresa</td><td class="v">${esc(si.empresa)}</td></tr>
+      <tr><td class="k">Cohorte</td><td class="v">${esc(si.cohorte)}</td></tr>
+    </table></div>
+    ${bloques}
+    <div class="resumen"><b>Resumen:</b> ${llenos} de ${campos.length} campos diligenciados · ${totalChars} caracteres en total</div>
+    ${recibo ? '' : '<div class="aviso"><b>Este PDF es una copia de trabajo.</b> Todavía no has enviado este experimento a tu mentor. Para entregarlo, vuelve al roadmap y pulsa «Enviar ahora».</div>'}
+    <div class="pie">Digital Change Advisors, LLC · ${esc(INSTRUMENT.marca)}<br>Documento de trabajo del participante.</div>
+  </div>
+  <script>window.onload=function(){window.print();}<\/script>
+  </body></html>`;
+  const w = window.open('', '_blank');
+  if (!w) { alerta('Tu navegador bloqueó la ventana del PDF. Permite las ventanas emergentes para este sitio e inténtalo de nuevo.', 'err'); return; }
+  w.document.write(html); w.document.close();
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+/* ══ MOTOR DE ENVÍO REAL (genérico, idéntico en todos los sprints) ═══════
+   La confirmación NUNCA se muestra por optimismo: solo con recibo del servidor. */
+
+function collectPayload(exp) {
+  const si = getStudentInfo();
+  const campos = (EXP_FIELDS[exp] || []).map(f => {
+    let value;
+    if (f.type === 'radio') {
+      const r = document.querySelector(`input[name="${f.name}"]:checked`);
+      value = r ? r.value : '';
+    } else {
+      const el = document.getElementById(f.id);
+      value = el ? el.value.trim() : '';
+    }
+    return { id: f.id, label: f.label, value: value, type: f.type || 'text' };
+  });
+  return {
+    instrumento: INSTRUMENT.id,
+    sprintLabel: INSTRUMENT.sprintLabel,
+    exp: exp,
+    expNombre: expNames[exp],
+    participante: { nombre: si.nombre, email: si.email, empresa: si.empresa, cohorte: si.cohorte },
+    campos: campos,
+    meta: { userAgent: navigator.userAgent, origen: location.origin, enviadoEn: new Date().toISOString() }
+  };
+}
+
+function validarEnvio(p) {
+  const errs = [];
+  const si = p.participante;
+  if (!si.nombre || si.nombre.indexOf('(sin') === 0 || si.nombre.trim().length < 3)
+    errs.push('Escribe tu <b>nombre completo</b> en la portada.');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(si.email))
+    errs.push('Escribe un <b>correo electrónico válido</b> en la portada — ahí te llega tu copia.');
+  if (!si.cohorte || si.cohorte.indexOf('(sin') === 0)
+    errs.push('Indica tu <b>cohorte</b> en la portada.');
+  const vacios = p.campos.filter(c => !String(c.value || '').trim());
+  if (vacios.length === p.campos.length)
+    errs.push('Todos los campos están vacíos: no hay nada que enviar.');
+  return { errs, vacios };
+}
+
+function alerta(html, tipo) {
+  const el = document.getElementById('modal-alert');
+  if (!el) return;
+  el.className = 'modal-alert show ' + (tipo || '');
+  el.innerHTML = html;
+}
+function limpiarAlerta() {
+  const el = document.getElementById('modal-alert');
+  if (el) { el.className = 'modal-alert'; el.innerHTML = ''; }
+}
+
+async function submitExp() {
+  const exp = currentExp;
+  const btn = document.getElementById('btn-send');
+  const payload = collectPayload(exp);
+  const { errs, vacios } = validarEnvio(payload);
+
+  if (errs.length) {
+    alerta('<b>Antes de enviar, completa esto:</b><ul><li>' + errs.join('</li><li>') + '</li></ul>', 'err');
+    return;
+  }
+  if (vacios.length) {
+    const ok = confirm(
+      `Hay ${vacios.length} campo(s) sin diligenciar:\n\n` +
+      vacios.map(v => '· ' + v.label).join('\n') +
+      `\n\n¿Quieres enviarlo así de todos modos? Podrás volver a enviar una versión corregida más adelante.`
+    );
+    if (!ok) return;
+  }
+  if (!INSTRUMENT.endpoint || INSTRUMENT.endpoint.indexOf('PEGA_AQUI') === 0) {
+    alerta('<b>El envío todavía no está configurado.</b> Avisa a tu mentor: falta conectar ' +
+           'el motor de recepción. Mientras tanto, descarga tu PDF para no perder tu trabajo.', 'err');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Enviando…';
+  alerta('Enviando tu experimento y generando tu PDF. Esto puede tardar unos segundos — no cierres esta ventana.', 'info');
+
+  try {
+    const res = await fetch(INSTRUMENT.endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      redirect: 'follow'
+    });
+    if (!res.ok) throw new Error('El servidor respondió ' + res.status);
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.mensaje || 'El servidor rechazó el envío.');
+
+    markSent(exp, data.reciboID);
+    alerta(
+      '<b>✓ Envío confirmado.</b><br>' +
+      'Tu experimento llegó a tu mentor y quedó registrado.<br>' +
+      'Tu número de recibo es <b>' + data.reciboID + '</b>' +
+      (data.copiaEstudiante ? '<br>Te enviamos una copia en PDF a <b>' + payload.participante.email + '</b>.' : '') +
+      '<br><span class="mini">Guarda este número: es tu comprobante.</span>',
+      'ok'
+    );
+    btn.textContent = '✓ Enviado';
+    document.getElementById('modal-actions').classList.add('sent');
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = '↻ Reintentar envío';
+    alerta(
+      '<b>No pudimos completar el envío.</b><br>' +
+      'Motivo: ' + (err.message || 'error de conexión') + '<br><br>' +
+      '<b>Tu trabajo está a salvo</b> — sigue guardado en este navegador. Puedes:<br>' +
+      '· Revisar tu conexión y pulsar <b>Reintentar envío</b>.<br>' +
+      '· Descargar el PDF y enviarlo tú a <b>' + INSTRUMENT.correoRespaldo + '</b>.',
+      'err'
+    );
+  }
+}
+
+function copyModal() {
+  const text = document.getElementById('modal-body').textContent;
+  const feedback = () => alerta('Resumen copiado al portapapeles. <b>Recuerda: copiar no es enviar</b> — ' +
+                                'usa «Enviar ahora» para que le llegue a tu mentor.', 'info');
+  navigator.clipboard.writeText(text).then(feedback).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    feedback();
+  });
+}
+
+function markSent(exp, reciboID) {
+  const btn = document.getElementById('btn-' + exp);
+  const ok  = document.getElementById('ok-' + exp);
+  if (btn) { btn.classList.add('done'); btn.textContent = '✓ Enviado · ' + reciboID; }
+  if (ok)  { ok.classList.add('show'); }
+  const d = getData();
+  d['sent_' + exp] = true;
+  d['recibo_' + exp] = reciboID;
+  d['fecha_envio_' + exp] = new Date().toISOString();
+  localStorage.setItem(SAVE_KEY, JSON.stringify(d));
+  const navEl = document.getElementById('nav-' + exp);
+  if (navEl) navEl.classList.add('done');
+}
+
+document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+// ══ INIT ════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  loadAll();
+  const d = getData();
+  Object.keys(EXP_FIELDS).forEach(exp => {
+    if (d['sent_' + exp]) {
+      const btn = document.getElementById('btn-' + exp);
+      const ok  = document.getElementById('ok-' + exp);
+      const rec = d['recibo_' + exp];
+      if (btn) { btn.classList.add('done'); btn.textContent = rec ? '✓ Enviado · ' + rec : '✓ Enviado'; }
+      if (ok)  { ok.classList.add('show'); }
+      const navEl = document.getElementById('nav-' + exp);
+      if (navEl) navEl.classList.add('done');
+    }
+  });
+  document.querySelectorAll('textarea').forEach(ta => updateCharCount(ta));
+});
+
+</script>
+</body>
+</html>
